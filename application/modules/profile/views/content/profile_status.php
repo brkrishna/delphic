@@ -6,10 +6,14 @@
         <div class="stepwizard-step">
         <?php if (isset($profile_count) && $profile_count > 0) : ?>
             <button type="button" class="btn btn-success btn-circle">1</button>
+            <?php ($current_user_role_id == 7 ? $url = 'content/profile/edit/' . $this->session->userdata('profile_id') : $url = 'content/profile'); ?>
+            <p><a class="alert-link" href="<?php echo ($url); ?>">Profile</a></p>
         <?php else : ?>
             <button type="button" class="btn btn-warning btn-circle">1</button>
+            <?php ($current_user_role_id == 7 ? $url = 'content/profile/create' : $url = 'content/profile'); ?>
+            <p><a class="alert-link" href="<?php echo ($url); ?>">Profile</a></p>
         <?php endif; ?>
-        <p><a class="alert-link" href="content/profile">Profile</a></p>
+        
         </div>
         <div class="stepwizard-step">
             <?php if (isset($team_count) && $team_count > 0) : ?>

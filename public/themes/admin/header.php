@@ -35,24 +35,43 @@ if (isset($shortcut_data) && is_array($shortcut_data['shortcut_keys'])) {
 	<noscript>
 		<p>Javascript is required to use Bonfire's admin.</p>
 	</noscript>
-    <div class="navbar navbar-static-top " id="topbar" >
-
-
-    <div class="logo-main-cnt"><a href="http://youthdelphicgames.com/"><img src="<?php echo(base_url() . 'assets/images/delphic_logo2.png'); ?>"/></a>
-
-    </div>
-
-
-        <div class="navbar-bg">
+    <div class="navbar navbar-static-top navbar-inverse" id="topbar" >
+        <div class="navbar-inner">
             <div class="container-fluid">
                 <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </a>
-
+                <?php
+                echo anchor('admin/content', html_escape($this->settings_lib->item('site.title')), 'class="brand"');
+                if (isset($shortcut_data) && is_array($shortcut_data['shortcuts'])
+                    && is_array($shortcut_data['shortcut_keys']) && count($shortcut_data['shortcut_keys'])
+                   ) :
+                ?>
+                <!-- Shortcut Menu -->
+                <div class="nav pull-right" id="shortcuts">
+                    <div class="btn-group">
+                        <a class="dropdown-toggle light btn" data-toggle="dropdown" href="#"><img src="<?php echo Template::theme_url('images/keyboard-icon.png'); ?>" id="shortkeys_show" title="Keyboard Shortcuts" alt="Keyboard Shortcuts" /></a>
+                        <ul class="dropdown-menu pull-right toolbar-keys">
+                            <li>
+                                <div class="inner keys">
+                                    <h4><?php echo lang('bf_keyboard_shortcuts'); ?></h4>
+                                    <ul>
+                                        <?php foreach ($shortcut_data['shortcut_keys'] as $key => $data) : ?>
+                                        <li><span><?php e($data); ?></span> : <?php echo $shortcut_data['shortcuts'][$key]['description']; ?></li>
+                                        <?php endforeach; ?>
+                                    </ul>
+				    <?php if ( has_permission('Bonfire.UI.View') && has_permission('Bonfire.UI.Manage') ): ?>
+                                    <a href="<?php echo site_url(SITE_AREA . '/settings/ui'); ?>"><?php echo lang('bf_keyboard_shortcuts_edit'); ?></a>
+				    <?php endif; ?>
+                                </div>
+                            </li>
+						</ul>
+					</div>
+                </div>
+                <?php endif;?>
                 <div class="nav-collapse in collapse">
-                <div style="position: absolute;top: 28px;"><a href="http://youthdelphicgames.com/"><img src="<?php echo(base_url() . 'assets/images/home.png'); ?>"/></a></div>
                     <!-- User Menu -->
                     <div class="nav pull-right" id="user-menu">
                         <div class="btn-group">
@@ -86,6 +105,7 @@ if (isset($shortcut_data) && is_array($shortcut_data['shortcut_keys'])) {
                             </ul>
                         </div>
                     </div>
+                    <?php echo Contexts::render_menu('text', 'normal'); ?>
                 </div><!-- /.nav-collapse -->
 			</div><!-- /container -->
 			<div class="clearfix"></div>

@@ -73,6 +73,7 @@ class Profile extends Front_Controller
             $this->session->set_userdata('profile_id',$profile_id);
         }
         
+        $data['current_user_role_id'] = $this->current_user->role_id;
         $data['profile_count'] = $this->profile_model->find_all($profile_id); 
         $data['team_count'] = $this->team_model->find_all($profile_id);
         $data['event_count'] = $this->event_registration_model->find_all($profile_id);
