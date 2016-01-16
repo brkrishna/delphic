@@ -107,13 +107,14 @@ $id = isset($profile->id) ? $profile->id : '';
                             <span class='help-inline'><?php echo form_error('regn_nbr'); ?></span>
                         </div>
                     </div>
+                    <!--
                     <div class="control-group<?php echo form_error('image') ? ' error' : ''; ?>">
                         <?php echo form_label(lang('profile_field_image'), 'image', array('class' => 'control-label')); ?>
                         <div class='controls'>
                             <input id='image' type='file' name='image' tabindex='13'/>
                             <span class='help-inline'><?php echo form_error('image'); ?></span>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </fieldset>

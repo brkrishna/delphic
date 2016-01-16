@@ -33,7 +33,7 @@ if ($can_delete) {
 					<th><?php echo lang('profile_field_regn_nbr'); ?></th>
 					<!--<th><?php echo lang('profile_field_profile'); ?></th>
 					<th><?php echo lang('profile_field_addl_info'); ?></th>-->
-					<th><?php echo lang('profile_field_image'); ?></th>
+					<!--<th><?php echo lang('profile_field_image'); ?></th>-->
 					<!--<th><?php echo lang('profile_column_deleted'); ?></th>
 					<th><?php echo lang('profile_column_created'); ?></th>
 					<th><?php echo lang('profile_column_modified'); ?></th>-->
@@ -77,7 +77,7 @@ if ($can_delete) {
 					<td><?php e($record->regn_nbr); ?></td>
 					<!--<td><?php e($record->profile); ?></td>
 					<td><?php e($record->addl_info); ?></td>-->
-					<td><?php echo(isset($record->image) ? anchor(base_url() . 'uploads/' . unserialize($record->image)['file_name'], unserialize($record->image)['file_name']) : ''); ?></td>
+					<!--<td><?php echo(isset($record->image) ? anchor(base_url() . 'uploads/' . unserialize($record->image)['file_name'], unserialize($record->image)['file_name']) : ''); ?></td>-->
 					<!--<td><?php echo $record->deleted > 0 ? lang('profile_true') : lang('profile_false'); ?></td>
 					<td><?php e($record->created_on); ?></td>
 					<td><?php e($record->modified_on); ?></td>-->
