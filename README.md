@@ -1,2 +1,2 @@
 # delphic
-youth delphic games
+youth delphic games registration process
