@@ -25,9 +25,6 @@ if ($can_delete) {
 					<th><?php echo lang('category_field_desc'); ?></th>
 					<th><?php echo lang('category_field_comments'); ?></th>
 					<th><?php echo lang('category_field_sort_order'); ?></th>
-					<th><?php echo lang('category_column_deleted'); ?></th>
-					<th><?php echo lang('category_column_created'); ?></th>
-					<th><?php echo lang('category_column_modified'); ?></th>
 				</tr>
 			</thead>
 			<?php if ($has_records) : ?>
@@ -60,9 +57,6 @@ if ($can_delete) {
 					<td><?php e($record->desc); ?></td>
 					<td><?php e($record->comments); ?></td>
 					<td><?php e($record->sort_order); ?></td>
-					<td><?php echo $record->deleted > 0 ? lang('category_true') : lang('category_false'); ?></td>
-					<td><?php e($record->created_on); ?></td>
-					<td><?php e($record->modified_on); ?></td>
 				</tr>
 				<?php
 					endforeach;
