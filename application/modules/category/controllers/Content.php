@@ -23,8 +23,8 @@ class Content extends Admin_Controller
         $this->load->model('category/category_model');
         $this->lang->load('category');
         
-            Assets::add_js(Template::theme_url('js/editors/tiny_mce/tiny_mce.js'));
-            Assets::add_js(Template::theme_url('js/editors/tiny_mce/tiny_mce_init.js'));
+            //Assets::add_js(Template::theme_url('js/editors/tiny_mce/tiny_mce.js'));
+            //Assets::add_js(Template::theme_url('js/editors/tiny_mce/tiny_mce_init.js'));
             $this->form_validation->set_error_delimiters("<span class='error'>", "</span>");
         
         Template::set_block('sub_nav', 'content/_sub_nav');
@@ -78,7 +78,7 @@ class Content extends Admin_Controller
         $this->category_model->limit($limit, $offset);
         
         $records = $this->category_model->find_all();
-
+        Template::set_view('categories');
         Template::set('records', $records);
         
     Template::set('toolbar_title', lang('category_manage'));

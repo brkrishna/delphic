@@ -66,9 +66,10 @@ if (empty($renderPayload) && isset($this->auth)) {
                     <?php $this->load->view('users/user_meta', array('frontend_only' => true)); ?>
                     <!-- End of User Meta -->
                 </fieldset>
+                <br/>
                 <fieldset class="form-actions">
                     <input type="submit" name="save" class="btn btn-primary" value="<?php echo lang('bf_action_save') . ' ' . lang('bf_user'); ?>" />
-                    <?php echo lang('bf_or') . ' ' . anchor('/', lang('bf_action_cancel')); ?>
+                    <?php echo lang('bf_or') . ' ' . anchor('/', lang('bf_action_cancel'), array('class'=>'btn btn-warning')); ?>
                 </fieldset>
             <?php echo form_close(); ?>
         </div>

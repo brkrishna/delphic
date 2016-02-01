@@ -23,9 +23,9 @@ class Content extends Admin_Controller
         $this->load->model('team/team_model');
         $this->lang->load('team');
         
-            Assets::add_css('flick/jquery-ui-1.8.13.custom.css');
-            Assets::add_js('jquery-ui-1.8.13.min.js');
-            $this->form_validation->set_error_delimiters("<span class='error'>", "</span>");
+        Assets::add_css('flick/jquery-ui-1.8.13.custom.css');
+        Assets::add_js('jquery-ui-1.8.13.min.js');
+        $this->form_validation->set_error_delimiters("<span class='error'>", "</span>");
         
         Template::set_block('sub_nav', 'content/_sub_nav');
 
@@ -83,7 +83,7 @@ class Content extends Admin_Controller
 
         Template::set('records', $records);
         
-    Template::set('toolbar_title', lang('team_manage'));
+        Template::set('toolbar_title', lang('team_manage'));
 
         Template::render();
     }

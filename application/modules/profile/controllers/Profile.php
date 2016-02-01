@@ -19,7 +19,7 @@ class Profile extends Front_Controller
     {
         parent::__construct();
         
-        $this->load->model(array('profile/profile_model', 'profile_users/profile_users_model', 'team/team_model','event_registration/event_registration_model'));
+        $this->load->model(array('profile/profile_model', 'profile_users/profile_users_model', 'team/team_model', 'registration/registration_model',));
         $this->lang->load('profile');
         $this->load->library('session');
         
@@ -76,7 +76,7 @@ class Profile extends Front_Controller
         $data['current_user_role_id'] = $this->current_user->role_id;
         $data['profile_count'] = $this->profile_model->find_all($profile_id); 
         $data['team_count'] = $this->team_model->find_all($profile_id);
-        $data['event_count'] = $this->event_registration_model->find_all($profile_id);
+        $data['event_count'] = $this->registration_model->find_all($profile_id);
         return $this->load->view('/content/profile_status', $data);
     }
 

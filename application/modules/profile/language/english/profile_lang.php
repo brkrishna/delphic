@@ -28,7 +28,7 @@ $lang['profile_edit_heading']    = 'Edit Profile';
 
 // Create/Edit Buttons
 $lang['profile_action_edit']   = 'Save Profile';
-$lang['profile_action_create']   = 'Create Profile';
+$lang['profile_action_create']   = 'Save Profile';
 
 // Activities
 $lang['profile_act_create_record'] = 'Created record with ID';

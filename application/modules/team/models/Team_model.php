@@ -73,7 +73,7 @@ class Team_model extends BF_Model
 		array(
 			'field' => 'email',
 			'label' => 'lang:team_field_email',
-			'rules' => 'max_length[255]',
+			'rules' => 'valid_email|max_length[255]',
 		),
 		array(
 			'field' => 'profession',
@@ -164,23 +164,32 @@ class Team_model extends BF_Model
 		return $option;
 	}
 
+    function validate_age($dob, $restriction = 18) {
+     
+        $dates = explode("-", $dob);    // Exploding sections of date into array
+        
+        $year = date("Y") - $dates["0"];    // Subtracting entered year from current year
+        $month = date("m") - $dates["1"];   // Subtracting entered month from current month
+        $day = date("d") - $dates["2"]; // Subtracting entered day from current day
+         
+        // If month is negative, means it's a year earlier - Decrement year by 1. Else if month is 0 and day is negative, means it's a year earlier - Decrement year by 1
+        if ($month < 0) {
+            $year--;
+        } elseif ($month == 0 && $day < 0) {
+            $year--;
+        }
+         
+        // If customer's age is greater than or equal to certificate then age is valid, else it's invalid
+        echo ($year);
+        if ($year >= $restriction) { 
+            $valid_age = TRUE;
+        } else {
+            $this->form_validation->set_message('validation_validate_age', 'The %s field can not be less than 18 years');
+            $valid_age = FALSE;
+        }
+         
+        return $valid_age;  // Return TRUE or FALSE whether customer is old enough to purchase product
+    }    	
+
 	//--------------------------------------------------------------------
-
-	public function get_teams($profile_id = NULL)
-	{
-	    if ($profile_id != NULL){
-	        $query = $this->db->select('id, name')->get_where($this->table_name, array('deleted'=>0, 'profile_id'=>$profile_id));    
-	    }else{
-	        $query = $this->db->select('id, name')->get_where($this->table_name, array('deleted'=>0));
-	    }
-		
-		if ($query->num_rows() > 0)
-		{
-			return $query->result();
-		} else {
-			return null;
-		}
-	}
-
-	//--------------------------------------------------------------------     
 }

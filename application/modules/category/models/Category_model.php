@@ -78,4 +78,22 @@ class Category_model extends BF_Model
     {
         parent::__construct();
     }
+    
+	public function get_category_select()
+	{
+	    $query = $this->db->select('id, desc')->get_where($this->table_name, array('deleted'=>0));
+
+		if ( $query->num_rows() <= 0 )
+			return '';
+
+		$option = array('-1'=>'Select one');
+		foreach ($query->result() as $row)
+		{
+			$option[$row->id] = $row->desc;
+		}
+
+		$query->free_result();
+
+		return $option;
+	}
 }

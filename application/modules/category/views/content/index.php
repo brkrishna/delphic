@@ -1,5 +1,4 @@
 <?php
-
 $num_columns	= 7;
 $can_delete	= $this->auth->has_permission('Category.Content.Delete');
 $can_edit		= $this->auth->has_permission('Category.Content.Edit');

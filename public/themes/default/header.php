@@ -1,7 +1,8 @@
 <?php
 
-Assets::add_css(array('bootstrap.min.css', 'bootstrap-responsive.min.css'));
+Assets::add_css(array('bootstrap.min.css', 'bootstrap-responsive.min.css', 'custom.css'));
 
+Assets::add_js('jquery-1.10.4.min.js');
 Assets::add_js('bootstrap.min.js');
 
 $inline  = '$(".dropdown-toggle").dropdown();';
@@ -24,6 +25,6 @@ Assets::add_js($inline, 'inline');
     echo Assets::js('modernizr-2.5.3.js');
     ?>
     <?php echo Assets::css(); ?>
-    <link rel="shortcut icon" href="<?php echo base_url(); ?>favicon.ico">
+    <link rel="shortcut icon" href="<?php echo (base_url() . 'themes/default/images/delphic_icon.png'); ?>">
 </head>
 <body>

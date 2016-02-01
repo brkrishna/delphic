@@ -88,7 +88,7 @@ class Profile_model extends BF_Model
 		array(
 			'field' => 'email_id',
 			'label' => 'lang:profile_field_email_id',
-			'rules' => 'required|max_length[255]',
+			'rules' => 'required|valid_email|max_length[255]',
 		),
 		array(
 			'field' => 'regn_nbr',

@@ -17,7 +17,7 @@ $id = isset($category->id) ? $category->id : '';
 ?>
 <div class='admin-box'>
     <h3>Category</h3>
-    <?php echo form_open($this->uri->uri_string(), 'class="form-horizontal"'); ?>
+    <?php echo form_open($this->uri->uri_string(), 'class="ajax-form form-horizontal"'); ?>
         <fieldset>
             
 

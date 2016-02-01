@@ -1,51 +1,33 @@
-<div class="span12 alert alert-info">
-    Please review the below tracker to identify the progress of your registration process
-</div>
-<div class="stepwizard">
-    <div class="stepwizard-row">
-        <div class="stepwizard-step">
-        <?php if (isset($profile_count) && $profile_count > 0) : ?>
-            <button type="button" class="btn btn-success btn-circle">1</button>
-            <?php ($current_user_role_id == 7 ? $url = 'content/profile/edit/' . $this->session->userdata('profile_id') : $url = 'content/profile'); ?>
-            <p><a class="alert-link" href="<?php echo ($url); ?>">Profile</a></p>
-        <?php else : ?>
-            <button type="button" class="btn btn-warning btn-circle">1</button>
-            <?php ($current_user_role_id == 7 ? $url = 'content/profile/create' : $url = 'content/profile'); ?>
-            <p><a class="alert-link" href="<?php echo ($url); ?>">Profile</a></p>
-        <?php endif; ?>
-        
-        </div>
-        <div class="stepwizard-step">
+        <li role="presentation" class="disabled">
+            <a href="#">Indicates your progress</a>
+        </li>
+        <li role="presentation">
+            <?php if (isset($profile_count) && $profile_count > 0) : ?>
+                    <?php ($current_user_role_id == 7 ? $url = base_url() . 'index.php/admin/content/profile/edit/' . $this->session->userdata('profile_id') : $url = 'content/profile'); ?>
+                    <a class="alert alert-success" href="<?php echo ($url); ?>"><span class="glyphicon glyphicon-th-large"></span>&nbsp;Profile</a>
+            <?php else : ?>
+                    <?php ($current_user_role_id == 7 ? $url = base_url() . 'index.php/admin/content/profile/create' : $url = 'content/profile'); ?>
+                    <a class="alert alert-warning" href="<?php echo ($url); ?>"><span class="glyphicon glyphicon-th-large"></span>&nbsp;Profile</a>
+            <?php endif; ?>
+        </li>
+        <li role="presentation">
             <?php if (isset($team_count) && $team_count > 0) : ?>
-                <button type="button" class="btn btn-success btn-circle">2</button>
+                <a class="alert alert-success" href="<?php e(base_url() . 'index.php/admin/content/team'); ?>"><span class="glyphicon glyphicon-user"></span>&nbsp;Team</a>
             <?php else : ?>
-                <button type="button" class="btn btn-warning btn-circle">2</button>
+                <a class="alert alert-warning" href="<?php e(base_url() . 'index.php/admin/content/team'); ?>"><span class="glyphicon glyphicon-user"></span>&nbsp;Team</a>
             <?php endif; ?>
-            <p><a class="alert-link" href="content/team">Team</a></p>
-        </div>
-        <div class="stepwizard-step">
+        </li>
+        <li role="presentation">
             <?php if (isset($event_count) && $event_count > 0) : ?>
-                <button type="button" class="btn btn-success btn-circle">3</button>
+                <a class="alert alert-success" href="<?php e(base_url() . 'index.php/admin/content/registration'); ?>"><span class="glyphicon glyphicon-list"></span>&nbsp;Events</a
             <?php else : ?>
-                <button type="button" class="btn btn-warning btn-circle">3</button>
+                <a class="alert alert-warning" href="<?php e(base_url() . 'index.php/admin/content/registration'); ?>"><span class="glyphicon glyphicon-list"></span>&nbsp;Events</a
             <?php endif; ?>
-            <p><a class="alert-link" href="content/event_registration">Events</a></p>
-        </div>
-        <div class="stepwizard-step">
+        </li>
+        <li role="presentation">
             <?php if (isset($payments) && $payments > 0) : ?>
-                <button type="button" class="btn btn-success btn-circle">4</button>
+                <a class="alert alert-success" href="<?php e(base_url() . 'index.php/admin/content/registration/summary'); ?>"><span class="glyphicon glyphicon-credit-card"></span>&nbsp;Payments</a
             <?php else : ?>
-                <button type="button" class="btn btn-warning btn-circle">4</button>
+                <a class="alert alert-warning" href="<?php e(base_url() . 'index.php/admin/content/registration/summary'); ?>"><span class="glyphicon glyphicon-credit-card"></span>&nbsp;Payments</a
             <?php endif; ?>
-            <p><a class="alert-link" href="content/factory">Payments</a></p>
-        </div>
-        <div class="stepwizard-step">
-            <?php if (isset($artifacts) && $artifacts > 0) : ?>
-                <button type="button" class="btn btn-success btn-circle">5</button>
-            <?php else : ?>
-                <button type="button" class="btn btn-warning btn-circle">5</button>
-            <?php endif; ?>
-            <p><a class="alert-link" href="content/bank_details">Artifacts</a></p>
-        </div> 
-    </div>
-</div>
+        </li>

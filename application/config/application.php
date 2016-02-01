@@ -51,7 +51,7 @@ $config['site.backup_folder']	= 'archives/';
 //      context_content_name
 // The icon displayed is chosen automatically from the file:
 //      theme/images/context_context_name.png
-$config['contexts'] = array('content','reports','settings','developer');
+$config['contexts'] = array('home','content','reports','settings','developer');
 
 //------------------------------------------------------------------------------
 // ACTIVITIES
@@ -112,7 +112,6 @@ $config['template.ajax_layout'] = 'ajax';
 //------------------------------------------------------------------------------
 // Themes
 //------------------------------------------------------------------------------
-
 //------------------------------------------------------------------------------
 // USE MOBILE THEMES?
 //------------------------------------------------------------------------------
@@ -135,7 +134,8 @@ $config['template.default_theme']	= 'default/';
 // ADMIN THEME
 //------------------------------------------------------------------------------
 // This is the folder name that contains the default admin theme to use
-$config['template.admin_theme'] = 'admin';
+$config['template.admin_theme'] = 'default/';
+//$config['template.admin_theme'] = 'admin';
 
 //------------------------------------------------------------------------------
 // Templates

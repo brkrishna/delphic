@@ -70,7 +70,7 @@ if ($can_delete) {
 					<td><?php e($record->contact_name); ?></td>
 					<td><?php e($record->address); ?></td>
 					<td><?php e($record->city); ?></td>
-					<td><?php e($record->country); ?></td>
+					<td><?php e($countries_select[$record->country]); ?></td>
 					<td><?php e($record->post_code); ?></td>
 					<td><?php e($record->contact_number); ?></td>
 					<td><?php e($record->email_id); ?></td>

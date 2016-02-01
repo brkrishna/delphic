@@ -103,7 +103,7 @@ if (defined('CI_VERSION') && substr(CI_VERSION, 0, 1) != '2') {
         'pconnect'     => false, // not supported with the database session driver
         'db_debug'     => true,
         'cache_on'     => false,
-        'cachedir'     => '',
+        'cachedir'     => APPPATH.'cache/db/',
         'char_set'     => 'utf8',
         'dbcollat'     => 'utf8_general_ci',
         'swap_pre'     => '',
@@ -134,3 +134,5 @@ if (defined('CI_VERSION') && substr(CI_VERSION, 0, 1) != '2') {
     $db['default']['autoinit'] = true;
     $db['default']['stricton'] = true;
 }
+
+

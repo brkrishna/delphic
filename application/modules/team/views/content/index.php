@@ -9,10 +9,16 @@ if ($can_delete) {
     $num_columns++;
 }
 ?>
-<div class='admin-box'>
-	<h3>
-		<?php echo lang('team_area_title'); ?>
-	</h3>
+<div class="row-fluid">
+    <ul class="nav nav-pills">
+        <?php echo Modules::run('profile/profile_status'); ?>
+    </ul>
+</div>
+<div class="row-fluid">
+    <span class="pull-left"><strong><?php echo lang('team_area_title'); ?></strong></span>
+    <span class="pull-right"><a class="alert alert-default" href="<?php echo (base_url() . 'index.php/admin/content/team/create'); ?>"><span class="glyphicon glyphicon-plus"></span>&nbsp;Add Member</a></span>
+    </span>
+    <hr/>
 	<?php echo form_open($this->uri->uri_string()); ?>
 		<table class='table table-striped'>
 			<thead>
@@ -96,4 +102,5 @@ if ($can_delete) {
     
     echo $this->pagination->create_links();
     ?>
+    <hr/>
 </div>

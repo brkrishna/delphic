@@ -24,20 +24,14 @@ class Content extends Admin_Controller
         $this->load->model('countries_model');
         $this->lang->load('profile');
         
-            Assets::add_js('//cdn.tinymce.com/4/tinymce.min.js');
-            Assets::add_js(Template::theme_url('js/editors/tiny_mce_init.js'));
-            $this->form_validation->set_error_delimiters("<span class='error'>", "</span>");
-        
+        $this->form_validation->set_error_delimiters("<span class='error'>", "</span>");
+            
         Template::set_block('sub_nav', 'content/_sub_nav');
-
         Assets::add_module_js('profile', 'profile.js');
         
 		$countries_select = $this->countries_model->get_countries_select();
 		Template::set('countries_select', $countries_select);
-        
-		$countries = $this->countries_model->get_countries();
-		Template::set('countries', $countries);
-        
+
     }
 
     /**
@@ -93,8 +87,7 @@ class Content extends Admin_Controller
         $records = $this->profile_model->find_all($profile_id);
 
         Template::set('records', $records);
-        
-    Template::set('toolbar_title', lang('profile_manage'));
+        Template::set('toolbar_title', lang('profile_manage'));
 
         Template::render();
     }
@@ -113,7 +106,7 @@ class Content extends Admin_Controller
                 log_activity($this->auth->user_id(), lang('profile_act_create_record') . ': ' . $insert_id . ' : ' . $this->input->ip_address(), 'profile');
                 Template::set_message(lang('profile_create_success'), 'success');
 
-                redirect(SITE_AREA . '/content/profile');
+                //redirect(SITE_AREA . '/content/profile');
             }
 
             // Not validation error
@@ -146,7 +139,7 @@ class Content extends Admin_Controller
             if ($this->save_profile('update', $id)) {
                 log_activity($this->auth->user_id(), lang('profile_act_edit_record') . ': ' . $id . ' : ' . $this->input->ip_address(), 'profile');
                 Template::set_message(lang('profile_edit_success'), 'success');
-                redirect(SITE_AREA . '/content/profile');
+                //redirect(SITE_AREA . '/content/profile');
             }
 
             // Not validation error

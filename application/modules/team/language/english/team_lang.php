@@ -28,7 +28,7 @@ $lang['team_edit_heading']    = 'Edit Team';
 
 // Create/Edit Buttons
 $lang['team_action_edit']   = 'Save Team';
-$lang['team_action_create']   = 'Create Team';
+$lang['team_action_create']   = 'Save Team';
 
 // Activities
 $lang['team_act_create_record'] = 'Created record with ID';
@@ -66,3 +66,4 @@ $lang['team_field_place_of_issue'] = 'Place of Issue';
 $lang['team_field_date_of_issue'] = 'Date of Issue';
 $lang['team_field_date_of_expiry'] = 'Date of Expiry';
 $lang['team_field_attachment'] = 'Attachment';
+$lang['form_validation_validate_age'] = 'Cannot register a person less than 18 years old';
