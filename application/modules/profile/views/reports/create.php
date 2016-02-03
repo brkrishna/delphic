@@ -31,7 +31,7 @@ $id = isset($profile->id) ? $profile->id : '';
             <div class="control-group<?php echo form_error('entity_name') ? ' error' : ''; ?>">
                 <?php echo form_label(lang('profile_field_entity_name') . lang('bf_form_label_required'), 'entity_name', array('class' => 'control-label')); ?>
                 <div class='controls'>
-                    <input id='entity_name' type='text' required='required' name='entity_name' maxlength='255' value="<?php echo set_value('entity_name', isset($profile->entity_name) ? $profile->entity_name : ''); ?>" />
+                    <input id='entity_name' class="form-control" type='text' required='required' name='entity_name' maxlength='255' value="<?php echo set_value('entity_name', isset($profile->entity_name) ? $profile->entity_name : ''); ?>" />
                     <span class='help-inline'><?php echo form_error('entity_name'); ?></span>
                 </div>
             </div>

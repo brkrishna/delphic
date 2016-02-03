@@ -86,6 +86,11 @@ class Profile_model extends BF_Model
 			'rules' => 'required|max_length[50]',
 		),
 		array(
+			'field' => 'alt_contact_number',
+			'label' => 'lang:profile_field_alt_contact_number',
+			'rules' => 'max_length[50]',
+		),
+		array(
 			'field' => 'email_id',
 			'label' => 'lang:profile_field_email_id',
 			'rules' => 'required|valid_email|max_length[255]',

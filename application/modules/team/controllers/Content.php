@@ -102,7 +102,7 @@ class Content extends Admin_Controller
                 log_activity($this->auth->user_id(), lang('team_act_create_record') . ': ' . $insert_id . ' : ' . $this->input->ip_address(), 'team');
                 Template::set_message(lang('team_create_success'), 'success');
 
-                redirect(SITE_AREA . '/content/team');
+                //redirect(SITE_AREA . '/content/team');
             }
 
             // Not validation error

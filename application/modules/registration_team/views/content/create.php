@@ -15,48 +15,36 @@ endif;
 $id = isset($registration_team->id) ? $registration_team->id : '';
 
 ?>
-<div class="row-fluid">
-    <ul class="nav nav-pills">
-        <?php echo Modules::run('profile/profile_status'); ?>
-    </ul>
-</div>
-<div class="row-fluid">
-    <h4>Registration Team</h4><br/>
+<div class="row">
+	<hr/>
+    <h4>Registration - Add Team Member</h4><br/>
     <?php echo form_open($this->uri->uri_string(), 'class="form-horizontal"'); ?>
-        <fieldset>
-            <div class="control-group<?php echo form_error('registration') ? ' error' : ''; ?>">
-                <div class='controls'>
-                    <input id='registration' type='hidden' name='registration' value="<?php echo set_value('registration', isset($registration_team->registration) ? $registration_team->registration : $registration_nbr ); ?>" />
-                    <span class='help-inline'><?php echo form_error('registration'); ?></span>
-                </div>
-            </div>
-            <div class="control-group">
+        <div class="col-xs-12 col-sm-6 col-md-8">
+            <div class="form-group">
+            	<input id='registration' type='hidden' name='registration' value="<?php echo set_value('registration', isset($registration_team->registration) ? $registration_team->registration : $registration_nbr ); ?>" />
                 <?php foreach($registration as $row) { ?>
-                    <div class="controls"><span class="alert alert-success">You are adding team member for Category -> <?php e($row->category . ' -> ' . $row->style . ' -> ' . $row->performance); ?> Performance 
+                    <span class="alert alert-success">You are adding team member for Category -> <?php e($row->category . ' -> ' . $row->style . ' -> ' . $row->performance); ?> Performance</span> 
                 <?php } ?>
             </div>
             <br/>
+            <div class="form-group">
 			<?php 
                 if (is_array($teams_select) && count($teams_select)) :
-				    echo form_dropdown(array('id'=>'team', 'name'=>'team'), $teams_select, set_value('team', isset($registration['team']) ? $registration['team'] : ''), 'Team'. lang('bf_form_label_required'), "tabindex='1'");
+				    echo form_dropdown(array('class'=>'form-control', 'id'=>'team', 'name'=>'team'), $teams_select, set_value('team', isset($registration_team->team) ? $registration_team->team : ''), 'Team'. lang('bf_form_label_required'), "tabindex='1'");
                 endif;
 			?>
-
-            <div class="control-group<?php echo form_error('comments') ? ' error' : ''; ?>">
+			</div>
+            <div class="form-group<?php echo form_error('comments') ? ' error' : ''; ?>">
                 <?php echo form_label(lang('registration_team_field_comments'), 'comments', array('class' => 'control-label')); ?>
-                <div class='controls'>
-                    <?php echo form_textarea(array('name' => 'comments', 'id' => 'comments', 'rows' => '5', 'cols' => '80', 'value' => set_value('comments', isset($registration_team->comments) ? $registration_team->comments : ''))); ?>
-                    <span class='help-inline'><?php echo form_error('comments'); ?></span>
-                </div>
+                <?php echo form_textarea(array('class'=>'form-control', 'name' => 'comments', 'id' => 'comments', 'rows' => '5', 'cols' => '80', 'value' => set_value('comments', isset($registration_team->comments) ? $registration_team->comments : ''))); ?>
+                <span class='help-inline'><?php echo form_error('comments'); ?></span>
             </div>
-        </fieldset>
-        <br/>
-        <fieldset class='form-actions'>
-            <input type='submit' name='save' class='btn btn-primary' value="<?php echo lang('registration_team_action_create'); ?>" />
-            <?php echo lang('bf_or'); ?>
-            <?php echo anchor(SITE_AREA . '/content/registration_team/create/' . $registration_nbr, lang('registration_team_cancel'), 'class="btn btn-warning"'); ?>
-            
-        </fieldset>
+            <div class="form-group">
+	            <input type='submit' name='save' class='btn btn-primary' value="<?php echo lang('registration_team_action_create'); ?>" />
+	            <?php echo lang('bf_or'); ?>
+	            <?php echo anchor(SITE_AREA . '/content/registration_team/create/' . $registration_nbr, lang('registration_team_cancel'), 'class="btn btn-warning"'); ?>
+			</div>            
+		</div>
     <?php echo form_close(); ?>
     <br/>
     <?php

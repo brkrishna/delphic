@@ -66,18 +66,20 @@ class Profile extends Front_Controller
     public function profile_status()
     {
         $profile_id = NULL;
-        if ($this->current_user->role_id == 7)
-        {
-            $profile_id = $this->profile_users_model->get_profile_id($this->current_user->id);    
-            $profile_id = ($profile_id > 0 ? $profile_id : -1);
-            $this->session->set_userdata('profile_id',$profile_id);
+        if (!empty($this->current_user)){ 
+            if ($this->current_user->role_id == 7)
+            {
+                $profile_id = $this->profile_users_model->get_profile_id($this->current_user->id);    
+                $profile_id = ($profile_id > 0 ? $profile_id : -1);
+                $this->session->set_userdata('profile_id',$profile_id);
+            }
+            
+            $data['current_user_role_id'] = $this->current_user->role_id;
+            $data['profile_count'] = $this->profile_model->find_all($profile_id); 
+            $data['team_count'] = $this->team_model->find_all($profile_id);
+            $data['event_count'] = $this->registration_model->find_all($profile_id);
+            return $this->load->view('/content/profile_status', $data);
         }
-        
-        $data['current_user_role_id'] = $this->current_user->role_id;
-        $data['profile_count'] = $this->profile_model->find_all($profile_id); 
-        $data['team_count'] = $this->team_model->find_all($profile_id);
-        $data['event_count'] = $this->registration_model->find_all($profile_id);
-        return $this->load->view('/content/profile_status', $data);
     }
 
 }

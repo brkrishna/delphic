@@ -21,23 +21,23 @@
 	</div>
 	<?php endif; ?>
 
-	<?php echo form_open(LOGIN_URL, array('autocomplete' => 'off')); ?>
+	<?php echo form_open(LOGIN_URL, array('autocomplete' => 'off', 'class'=>'form-signin')); ?>
 		<div class="control-group <?php echo iif( form_error('login') , 'error') ;?>">
 			<div class="controls">
-				<input class="form-control" style="width: 95%" type="text" name="login" id="login_value" value="<?php echo set_value('login'); ?>" tabindex="1" placeholder="<?php echo $this->settings_lib->item('auth.login_type') == 'both' ? lang('bf_username') .'/'. lang('bf_email') : ucwords($this->settings_lib->item('auth.login_type')) ?>" />
+				<input class="form-control" type="email" required autofocus name="login" id="login_value" value="<?php echo set_value('login'); ?>" tabindex="1" placeholder="Email" />
 			</div>
 		</div>
         <br/>
 		<div class="control-group <?php echo iif( form_error('password') , 'error') ;?>">
 			<div class="controls">
-				<input class="form-control" style="width: 95%" type="password" name="password" id="password" value="" tabindex="2" placeholder="<?php echo lang('bf_password'); ?>" />
+				<input class="form-control" type="password" name="password" id="password" value="" tabindex="2" placeholder="<?php echo lang('bf_password'); ?>" />
 			</div>
 		</div>
 
 
 		<?php if ($this->settings_lib->item('auth.allow_remember')) : ?>
 			<div class="control-group">
-				<div class="controls">
+				<div class="checkbox">
 					<label class="checkbox" for="remember_me">
 						<input class="checkbox" type="checkbox" name="remember_me" id="remember_me" value="1" tabindex="3" />
 						<span class="inline-help"><?php echo lang('us_remember_note'); ?></span>

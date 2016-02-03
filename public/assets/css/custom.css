@@ -6,8 +6,9 @@
     Purpose of the stylesheet follows.
     To change this template use Tools | Templates.
 */
+/*
 body{
-    background-color:#f2f2f2;
+    
 }
 textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], 
 input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], 
@@ -27,10 +28,40 @@ input[type="date"], input[type="month"], input[type="time"], input[type="week"],
 input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
     border-radius: 0;
  }
+*/
+body{
+	font-family: 'Open Sans', sans-serif;
+}
 hr{
     height:1px;
     background-color:#ee4580;
 }
+.btn {
+	border-radius: 0;
+}
+.btn-primary{
+	background: transparent none repeat scroll 0 0;
+	color: #f14380;
+	border: 2px solid #ee4580;
+	font-size: 1.3em;
+}
+.btn-primary:hover {
+	background-color: #ee4580;
+	border: 2px solid #ee4580;
+	color: #fff;
+}
+.btn-warning{
+	background: transparent none repeat scroll 0 0;
+	color: #f14380;
+	border: 2px solid #f14380;
+	font-size: 1.3em;
+}
+.btn-warning:hover {
+	background-color: #f0ad4e;
+	border: 2px solid #f0ad4e;
+	color: #fff;
+}
+/*
 .btn {
 	border-radius: 0;
 }
@@ -107,6 +138,7 @@ hr{
     color: #333;
 	text-decoration:none;
 }
+*/
 
 /* pills*/
 .nav-pills > li > a {

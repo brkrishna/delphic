@@ -12,23 +12,33 @@
 ?>
 
 <?php if (empty($current_user)) : ?>
-    <div class="jumbotron" text-align="center">
-    	<h1>Welcome to <br/>V Youth Delphic Registrations</h1>
-        <hr/>
-    	<p class="lead">Register and follow through the process to complete necessary documentation, 
-    	<br/>
-    	sit back and relax while we review the application and get back to you.<br/>That's all folks.</p>
-    
+    <div class="row-fluid">
+        <div class="col-md-10" text-align="center">
+        	<h1>V Youth Delphic Games</h1>
+            <br/>
+        	<p class="lead text-justify">Register and follow through the process to complete necessary documentation, sit back and 
+            relax while we review the application and get back to you.<br/><br/><i>That's all folks.</i></p>
+            <br/>
+            <ul class="nav nav-pills">
+                <li>
+                    <a href="<?php echo site_url(LOGIN_URL); ?>">
+                        <button class="btn btn-primary btn-large"><span class="glyphicon glyphicon-log-in"></span>&nbsp;Sign</button>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php echo site_url('/register'); ?>">
+                        <button class="btn btn-primary btn-large"><span class="glyphicon glyphicon-align-justify"></span>&nbsp;Register</button>
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
+
 <?php else : ?>
-   <div class="row-fluid">
-        <ul class="nav nav-pills">
-            <?php echo Modules::run('profile/profile_status'); ?>
-        </ul>
-   </div>
     <div class="row-fluid">
         <div class="col-md-10">
             <p class="text-justify">
+                <h1>Rules and Regulations</h1>
                 The aim of this guide is to assist participants in registering with the games. The mandatory registration standards are listed below.
                 <ul>
                     <li>One member from a team/group will register on behalf of the rest of the team.</li>

@@ -28,7 +28,7 @@ $lang['registration_team_edit_heading']    = 'Edit Registration Team';
 
 // Create/Edit Buttons
 $lang['registration_team_action_edit']   = 'Save Registration Team';
-$lang['registration_team_action_create']   = 'Create Registration Team';
+$lang['registration_team_action_create']   = 'Save Registration Team';
 
 // Activities
 $lang['registration_team_act_create_record'] = 'Created record with ID';

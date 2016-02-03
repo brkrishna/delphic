@@ -70,47 +70,43 @@ $id = isset($registration->id) ? $registration->id : '';
       
   });
 </script>
-<div class="row-fluid">
-    <ul class="nav nav-pills">
-        <?php echo Modules::run('profile/profile_status'); ?>
-    </ul>
-</div>
-<div class="row-fluid">
-    <h4>Registration</h4>
+<div class="row">
+    <hr/>
+    <h4>Create Registration</h4>
     <?php echo form_open($this->uri->uri_string(), 'class="form-horizontal"'); ?>
-        <fieldset>
-            
-			<?php 
-                if (is_array($categories_select) && count($categories_select)) :
-				    echo form_dropdown(array('id'=>'category', 'name'=>'category'), $categories_select, set_value('category', isset($registration['category']) ? $registration['category'] : ''), 'Category'. lang('bf_form_label_required'), "tabindex='1'");
-                endif;
-			?>
-            <?php // Change the values in this array to populate your dropdown as required
-                $options = array('-1'=>'Select one',
-                );
-                echo form_dropdown(array('id' => 'style', 'name'=>'style'), $options, set_value('style', isset($registration->style) ? $registration->style : ''), lang('registration_field_style') . lang('bf_form_label_required'));
-            ?>
-
-            <?php // Change the values in this array to populate your dropdown as required
-                $options = array('-1'=>'Select one',
-                );
-                echo form_dropdown(array('id' => 'performance', 'name'=>'performance', 'required' => 'required'), $options, set_value('performance', isset($registration->performance) ? $registration->performance : ''), lang('registration_field_performance') . lang('bf_form_label_required'));
-            ?>
-
-            <div class="control-group<?php echo form_error('comments') ? ' error' : ''; ?>">
-                <?php echo form_label(lang('registration_field_comments'), 'comments', array('class' => 'control-label')); ?>
-                <div class='controls'>
-                    <?php echo form_textarea(array('name' => 'comments', 'id' => 'comments', 'rows' => '5', 'cols' => '80', 'value' => set_value('comments', isset($registration->comments) ? $registration->comments : ''))); ?>
-                    <span class='help-inline'><?php echo form_error('comments'); ?></span>
-                </div>
+        <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="form-group">
+    			<?php 
+                    if (is_array($categories_select) && count($categories_select)) :
+    				    echo form_dropdown(array('class'=>'form-control', 'id'=>'category', 'name'=>'category'), $categories_select, set_value('category', isset($registration['category']) ? $registration['category'] : ''), 'Category'. lang('bf_form_label_required'), "tabindex='1'");
+                    endif;
+    			?>
             </div>
-        </fieldset>
-        <br/>
-        <fieldset class='form-actions'>
-            <input type='submit' name='save' class='btn btn-primary' value="<?php echo lang('registration_action_create'); ?>" />
-            <?php echo lang('bf_or'); ?>
-            <?php echo anchor(SITE_AREA . '/content/registration', lang('registration_cancel'), 'class="btn btn-warning"'); ?>
-            
-        </fieldset>
+            <div class="form-group">
+                <?php // Change the values in this array to populate your dropdown as required
+                    $options = array('-1'=>'Select one',
+                    );
+                    echo form_dropdown(array('class'=>'form-control', 'id' => 'style', 'name'=>'style'), $options, set_value('style', isset($registration->style) ? $registration->style : ''), lang('registration_field_style') . lang('bf_form_label_required'));
+                ?>
+            </div>
+            <div class="form-group">
+                <?php // Change the values in this array to populate your dropdown as required
+                    $options = array('-1'=>'Select one',
+                    );
+                    echo form_dropdown(array('class'=>'form-control', 'id' => 'performance', 'name'=>'performance', 'required' => 'required'), $options, set_value('performance', isset($registration->performance) ? $registration->performance : ''), lang('registration_field_performance') . lang('bf_form_label_required'));
+                ?>
+            </div>
+            <div class="form-group<?php echo form_error('comments') ? ' error' : ''; ?>">
+                <?php echo form_label(lang('registration_field_comments'), 'comments', array('class' => 'control-label')); ?>
+                <?php echo form_textarea(array('class'=>'form-control', 'name' => 'comments', 'id' => 'comments', 'rows' => '5', 'cols' => '80', 'value' => set_value('comments', isset($registration->comments) ? $registration->comments : ''))); ?>
+                <span class='help-inline'><?php echo form_error('comments'); ?></span>
+            </div>
+            <div class="form-group">
+                <input type='submit' name='save' class='btn btn-primary' value="<?php echo lang('registration_action_create'); ?>" />
+                <?php echo lang('bf_or'); ?>
+                <?php echo anchor(SITE_AREA . '/content/registration', lang('registration_cancel'), 'class="btn btn-warning"'); ?>
+                <hr/>
+            </div>
+        </div>
     <?php echo form_close(); ?>
 </div>

@@ -2,12 +2,7 @@
 $has_profile	= isset($profile) && is_array($profile) && count($profile);
 $has_registrations = isset($registrations) && is_array($registrations) && count($registrations);
 ?>
-<div class="row-fluid">
-    <ul class="nav nav-pills">
-        <?php echo Modules::run('profile/profile_status'); ?>
-    </ul>
-</div>
-<div class='row-fluid'>
+<div class='row'>
     <span class="pull-center"><strong>Summary</strong></span>
     <hr/>
 	<table class='table table-striped table-condensed'>
@@ -30,7 +25,7 @@ $has_registrations = isset($registrations) && is_array($registrations) && count(
 			    </td>
 			</tr>
 		</thead>
-			<tr><th>Category</th><th>Style</th><th>Performance</th><th>Participant</th><th>Amount</th></tr>
+			<tr><th>Category</th><th>Style</th><th>Performance</th><th>Participant</th><th>Amount (in USD)</th></tr>
 			<?php if ($has_registrations) :
 			    $total = 0;
 			    foreach($registrations as $regn) :
@@ -40,7 +35,7 @@ $has_registrations = isset($registrations) && is_array($registrations) && count(
                     <td><?php e($regn->style); ?> </td>
                     <td><?php e($regn->performance); ?> </td>
                     <td><?php e($regn->member_name); ?> </td>
-                    <td><?php e($regn->member_name == '' ? 0.00 : 11.00); ?> </td>
+                    <td align="center"><?php e(number_format($regn->member_name == '' ? 0.00 : 11.00, 2)); ?> </td>
                 </tr>
             <?php
                     if ($regn->member_name != ''):
@@ -49,7 +44,7 @@ $has_registrations = isset($registrations) && is_array($registrations) && count(
 			    endforeach;
 			?>
 		<tfooter>
-		    <tr><th colspan="4">Total</th><th><?php e($total); ?></th></tr>
+		    <tr><td colspan="4" >Total</td><td align="center"><?php e(number_format($total, 2)); ?></td></tr>
 		</tfooter>
 		<?php endif; ?>
 	</table>

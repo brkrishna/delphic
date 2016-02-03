@@ -51,8 +51,18 @@ class Team_model extends BF_Model
 			'rules' => 'max_length[50]',
 		),
 		array(
+			'field' => 'member_type',
+			'label' => 'lang:team_field_member_type',
+			'rules' => 'required|max_length[255]',
+		),
+		array(
 			'field' => 'name',
 			'label' => 'lang:team_field_name',
+			'rules' => 'required|max_length[255]',
+		),
+		array(
+			'field' => 'last_name',
+			'label' => 'lang:team_field_last_name',
 			'rules' => 'required|max_length[255]',
 		),
 		array(
@@ -69,6 +79,11 @@ class Team_model extends BF_Model
 			'field' => 'contact_nbr',
 			'label' => 'lang:team_field_contact_nbr',
 			'rules' => 'max_length[255]',
+		),
+		array(
+			'field' => 'alt_contact_nbr',
+			'label' => 'lang:team_field_alt_contact_nbr',
+			'rules' => 'max_length[50]',
 		),
 		array(
 			'field' => 'email',
@@ -109,6 +124,11 @@ class Team_model extends BF_Model
 			'field' => 'attachment',
 			'label' => 'lang:team_field_attachment',
 			'rules' => 'max_length[4000]',
+		),
+		array(
+			'field' => 'attachment_type',
+			'label' => 'lang:team_field_attachment_type',
+			'rules' => 'max_length[255]',
 		),
 	);
 	protected $insert_validation_rules  = array();

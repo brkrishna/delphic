@@ -29,6 +29,7 @@ $lang['profile_edit_heading']    = 'Edit Profile';
 // Create/Edit Buttons
 $lang['profile_action_edit']   = 'Save Profile';
 $lang['profile_action_create']   = 'Save Profile';
+$lang['profile_action_create_team']   = 'Continue to Add Team';
 
 // Activities
 $lang['profile_act_create_record'] = 'Created record with ID';
@@ -54,15 +55,16 @@ $lang['profile_area_title'] = 'Profile';
 
 // Fields
 $lang['profile_field_entity_type'] = 'Type';
-$lang['profile_field_entity_name'] = 'Name';
+$lang['profile_field_entity_name'] = 'Organization Name';
 $lang['profile_field_contact_name'] = 'Contact Name';
 $lang['profile_field_address'] = 'Address';
 $lang['profile_field_city'] = 'City';
 $lang['profile_field_country'] = 'Country';
 $lang['profile_field_post_code'] = 'Postal Code';
 $lang['profile_field_contact_number'] = 'Contact Number';
+$lang['profile_field_alt_contact_number'] = 'Alternate Contact Number';
 $lang['profile_field_email_id'] = 'Email ID';
 $lang['profile_field_regn_nbr'] = 'Registration Number';
-$lang['profile_field_profile'] = 'Profile';
+$lang['profile_field_profile'] = 'Brief Profile';
 $lang['profile_field_addl_info'] = 'Additional Info';
 $lang['profile_field_image'] = 'Attachment';
