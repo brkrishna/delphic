@@ -13,7 +13,7 @@
 
 <?php if (empty($current_user)) : ?>
     <div class="row-fluid">
-        <div class="col-md-10" text-align="center">
+        <div class="col-xs-12 col-sm-6 col-md-10" text-align="center">
         	<h1>V Youth Delphic Games</h1>
             <br/>
         	<p class="lead text-justify">Register and follow through the process to complete necessary documentation, sit back and 
@@ -35,10 +35,17 @@
     </div>
 
 <?php else : ?>
-    <div class="row-fluid">
-        <div class="col-md-10">
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-12 text-justify">
+            <p class="text-right">
+                <span>
+                    <a class="btn btn-primary" href="http://www.youthdelphicgames.com/downloads/Rules%20and%20Regulations.pdf"><span class="glyphicon glyphicon-download-alt"></span>&nbsp;Rules and Regulations</a>&nbsp;
+                    <a class="btn btn-primary" href="http://www.youthdelphicgames.com/downloads/Registration%20Guidelines.pdf"><span class="glyphicon glyphicon-download-alt"></span>&nbsp;Registration Guidelines</a>
+                </span>
+            </p>
             <p class="text-justify">
-                <h1>Rules and Regulations</h1>
+                <h2>Registration Guidelines</h2>
+                <hr/>
                 The aim of this guide is to assist participants in registering with the games. The mandatory registration standards are listed below.
                 <ul>
                     <li>One member from a team/group will register on behalf of the rest of the team.</li>

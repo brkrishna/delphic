@@ -105,7 +105,6 @@ $id = isset($registration->id) ? $registration->id : '';
                 <input type='submit' name='save' class='btn btn-primary' value="<?php echo lang('registration_action_create'); ?>" />
                 <?php echo lang('bf_or'); ?>
                 <?php echo anchor(SITE_AREA . '/content/registration', lang('registration_cancel'), 'class="btn btn-warning"'); ?>
-                <hr/>
             </div>
         </div>
     <?php echo form_close(); ?>

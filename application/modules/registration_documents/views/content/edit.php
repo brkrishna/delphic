@@ -15,16 +15,17 @@ endif;
 $id = isset($registration_documents->id) ? $registration_documents->id : '';
 
 ?>
-<div class="row-fluid">
-    <ul class="nav nav-pills">
-        <?php echo Modules::run('profile/profile_status'); ?>
-    </ul>
-</div>
-<div class="row-fluid">
+<div class="row">
     <h4>Registration Documents</h4><br/>
     <?php echo form_open_multipart($this->uri->uri_string(), 'class="form-horizontal"'); ?>
-        <fieldset>
-            <div class="control-group<?php echo form_error('registration') ? ' error' : ''; ?>">
+        <div class="col-xs-12 col-sm-6 col-md-8">
+            <div class="form-group">
+                <?php foreach($registration as $row) { ?>
+                    <div class="controls"><span class="alert alert-success">You are editing documents for Category -> <?php e($row->category . ' -> ' . $row->style . ' -> ' . $row->performance); ?> Performance </span></div>
+                <?php } ?>
+            </div>
+            <br/>
+            <div class="form-group<?php echo form_error('registration') ? ' error' : ''; ?>">
                 <div class='controls'>
                     <input id='registration' type='hidden' name='registration' value="<?php echo set_value('registration', isset($registration_documents->registration) ? $registration_documents->registration : $registration_nbr ); ?>" />
                     <span class='help-inline'><?php echo form_error('registration'); ?></span>
@@ -34,7 +35,7 @@ $id = isset($registration_documents->id) ? $registration_documents->id : '';
                 <?php echo(isset($registration_documents->attachment) ? anchor(base_url() . 'uploads/' . unserialize($registration_documents->attachment)['file_name'], unserialize($registration_documents->attachment)['file_name']) : ''); ?>
             <?php endif; ?>
             
-            <div class="control-group<?php echo form_error('attachment') ? ' error' : ''; ?>">
+            <div class="form-group<?php echo form_error('attachment') ? ' error' : ''; ?>">
                 <?php echo form_label(lang('registration_documents_field_attachment'), 'attachment', array('class' => 'control-label')); ?>
                 <div class='controls'>
                     <input class="btn btn-primary" id='attachment' type='file' name='attachment' maxlength='4000' value="<?php echo set_value('attachment', isset($registration_documents->attachment) ? $registration_documents->attachment : ''); ?>" />
@@ -42,27 +43,25 @@ $id = isset($registration_documents->id) ? $registration_documents->id : '';
                 </div>
             </div>
             <br/>
-            <div class="control-group<?php echo form_error('title') ? ' error' : ''; ?>">
+            <div class="form-group<?php echo form_error('title') ? ' error' : ''; ?>">
                 <div class='controls'>
-                    <input id='title' type='text' name='title' value="<?php echo set_value('title', isset($registration_documents->title) ? $registration_documents->title : '' ); ?>" />
+                    <input class="form-control" id='title' type='text' name='title' value="<?php echo set_value('title', isset($registration_documents->title) ? $registration_documents->title : '' ); ?>" />
                     <span class='help-inline'><?php echo form_error('title'); ?></span>
                 </div>
             </div>
-            <div class="control-group<?php echo form_error('comments') ? ' error' : ''; ?>">
+            <div class="form-group<?php echo form_error('comments') ? ' error' : ''; ?>">
                 <?php echo form_label(lang('registration_documents_field_comments'), 'comments', array('class' => 'control-label')); ?>
                 <div class='controls'>
-                    <?php echo form_textarea(array('name' => 'comments', 'id' => 'comments', 'rows' => '5', 'cols' => '80', 'value' => set_value('comments', isset($registration_documents->comments) ? $registration_documents->comments : ''))); ?>
+                    <?php echo form_textarea(array('class'=>'form-control', 'name' => 'comments', 'id' => 'comments', 'rows' => '5', 'cols' => '80', 'value' => set_value('comments', isset($registration_documents->comments) ? $registration_documents->comments : ''))); ?>
                     <span class='help-inline'><?php echo form_error('comments'); ?></span>
                 </div>
             </div>
-        </fieldset>
-        <br/>
-        <fieldset class='form-actions'>
-            <input type='submit' name='save' class='btn btn-primary' value="<?php echo lang('registration_documents_action_create'); ?>" />
-            <?php echo lang('bf_or'); ?>
-            <?php echo anchor(SITE_AREA . '/content/registration_documents/create/' . $registration_nbr, lang('registration_documents_cancel'), 'class="btn btn-warning"'); ?>
-            
-        </fieldset>
+            <br/>
+            <div class='form-group'>
+                <input type='submit' name='save' class='btn btn-primary' value="<?php echo lang('registration_documents_action_create'); ?>" />
+                <?php echo lang('bf_or'); ?>
+                <?php echo anchor(SITE_AREA . '/content/registration_documents/create/' . $registration_nbr, lang('registration_documents_cancel'), 'class="btn btn-warning"'); ?>
+            </div>
     <?php echo form_close(); ?>
     <br/>
     <?php
@@ -134,4 +133,5 @@ $id = isset($registration_documents->id) ? $registration_documents->id : '';
 	<?php
     echo form_close();
     ?>
+    </div>
 </div>

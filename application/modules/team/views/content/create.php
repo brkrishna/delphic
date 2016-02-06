@@ -99,6 +99,7 @@ $id = isset($team->id) ? $team->id : '';
                 );
                 echo form_dropdown(array('name' => 'attachment_type', 'class'=>'form-control', 'tabindex'=>'13', 'required'=>'', 'autofocus'=>''), $options, set_value('attachment_type', isset($team->attachment_type) ? $team->attachment_type : ''), lang('team_field_attachment_type') . lang('bf_form_label_required'));
             ?>
+            </div>
             <div class="form-group<?php echo form_error('attachment') ? ' error' : ''; ?>">
                 <?php echo form_label(lang('team_field_attachment'), 'attachment', array('class' => 'control-label')); ?>
                 <?php if(isset($team->attachment)) : ?>
@@ -116,7 +117,6 @@ $id = isset($team->id) ? $team->id : '';
                 <input tabindex='16' type='submit' name='save' class='btn btn-primary' value="<?php echo lang('team_action_create'); ?>" />
                 <?php echo lang('bf_or'); ?>
                 <?php echo anchor(SITE_AREA . '/content/team', lang('team_cancel'), array('class'=>'btn btn-warning', 'tabindex'=>'17')); ?>
-                <hr/>
             </div>            
         </div>
     <?php echo form_close(); ?>

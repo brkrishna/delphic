@@ -98,4 +98,24 @@ class Registration_team_model extends BF_Model
         }
     
     }    
+
+    public function find_regn_team_count($regn_id = NULL){
+        if ($regn_id == NULL){
+            return FALSE;
+        }else{
+            $query = $this->select('a.id, a.team team_id, b.name, a.comments')
+                ->from('bf_registration_team a')
+                ->join('bf_team b', 'a.team = b.id');	
+            $query = $this->db->get();    
+        }
+        
+        if ($query->num_rows() > 0)
+        {
+            return $query->num_rows();
+        } else {
+            return 0;
+        }
+    
+    }    
+
 }

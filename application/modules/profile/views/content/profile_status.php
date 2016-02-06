@@ -1,4 +1,7 @@
         <ul class="nav nav-wizard">
+            <li role="presentation" class="active">
+                <span class="badge">Amount Due:&nbsp;<span class="glyphicon glyphicon-usd"></span>&nbsp;&nbsp;<?php e(number_format($event_record_count * 11, 2)); ?></span>
+            </li>
             <li role="presentation">
                 <?php if (isset($profile_count) && $profile_count > 0) : ?>
                     <?php ($current_user_role_id == 7 ? $url = base_url() . 'index.php/admin/content/profile/edit/' . $this->session->userdata('profile_id') : $url = 'content/profile'); ?>

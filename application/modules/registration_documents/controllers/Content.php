@@ -20,7 +20,7 @@ class Content extends Admin_Controller
         parent::__construct();
         
         $this->auth->restrict($this->permissionView);
-        $this->load->model('registration_documents/registration_documents_model');
+        $this->load->model(array('registration_documents/registration_documents_model', 'registration/registration_model'));
         $this->lang->load('registration_documents');
         
             $this->form_validation->set_error_delimiters("<span class='error'>", "</span>");
@@ -164,7 +164,7 @@ class Content extends Admin_Controller
         $documents = $this->registration_documents_model->find($id);
         
         $registration_nbr = $documents->registration;
-        
+        Template::set('registration', $this->registration_model->find_regn_details($registration_nbr));
         Template::set('registration_documents', $this->registration_documents_model->find($id));
         Template::set('records', $this->registration_documents_model->find_all($registration_nbr));
         Template::set('registration_nbr', $registration_nbr);

@@ -1,6 +1,22 @@
 <?php
 if (validation_errors()) :
 ?>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script  type="text/javascript">
+    $(document).ready(function(){
+        $("#entity_name").prop('disabled');    
+        $("#entity_type").change(function(){
+            console.log("here");
+            var ent_type = $("#entity_type").val();
+            console.log(ent_type);
+            if(ent_type == 'Individual'){
+                $("#entity_name").prop('disabled', true);
+            }else{
+                $("#entity_name").prop('enabled', false);
+            }        
+        });
+    });
+</script>
 <div class='alert alert-block alert-error fade in'>
     <a class='close' data-dismiss='alert'>&times;</a>
     <h4 class='alert-heading'>
@@ -27,9 +43,11 @@ $id = isset($profile->id) ? $profile->id : '';
                 'Organization' => 'Organization',
                 'Individual' => 'Individual'
             );
-            echo form_dropdown(array('name' => 'entity_type', 'class'=>'form-control', 'tabindex'=>'1', 'required'=>'', 'autofocus'=>''), $options, set_value('entity_type', isset($profile->entity_type) ? $profile->entity_type : ''), lang('profile_field_entity_type') . lang('bf_form_label_required'));
+            echo form_dropdown(array('id'=> 'entity_type', 'name' => 'entity_type', 'class'=>'form-control', 'tabindex'=>'1', 'required'=>'', 'autofocus'=>''), $options, set_value('entity_type', isset($profile->entity_type) ? $profile->entity_type : ''), lang('profile_field_entity_type') . lang('bf_form_label_required'));
         ?>
         </div>
+        <br/><br/>
+        <small>Organization Name and Registration Number are required if you are registering as an Organization</small> 
         <div class="form-group<?php echo form_error('entity_name') ? ' error' : ''; ?>">
             <?php echo form_label(lang('profile_field_entity_name') . lang('bf_form_label_required'), 'entity_name'); ?>
             <input tabindex='2' id='entity_name' class="form-control" type='text' required='required' name='entity_name' maxlength='255' value="<?php echo set_value('entity_name', isset($profile->entity_name) ? $profile->entity_name : ''); ?>" />
@@ -40,6 +58,7 @@ $id = isset($profile->id) ? $profile->id : '';
             <input tabindex='3' class="form-control" id='regn_nbr' type='text' name='regn_nbr' maxlength='255' value="<?php echo set_value('regn_nbr', isset($profile->regn_nbr) ? $profile->regn_nbr : ''); ?>" />
             <span class='help-inline'><?php echo form_error('regn_nbr'); ?></span>
         </div>
+        <br/><br/>
         <div class="form-group<?php echo form_error('contact_name') ? ' error' : ''; ?>">
             <?php echo form_label(lang('profile_field_contact_name') . lang('bf_form_label_required'), 'contact_name', array('class' => 'control-label')); ?>
             <input tabindex='4' id='contact_name' class="form-control" type='text' required='required' name='contact_name' maxlength='255' value="<?php echo set_value('contact_name', isset($profile->contact_name) ? $profile->contact_name : ''); ?>" />
@@ -55,14 +74,20 @@ $id = isset($profile->id) ? $profile->id : '';
             <input tabindex='6' class="form-control" id='alt_contact_number' type='text' name='alt_contact_number' maxlength='50' value="<?php echo set_value('alt_contact_number', isset($profile->alt_contact_number) ? $profile->alt_contact_number : ''); ?>" />
             <span class='help-inline'><?php echo form_error('alt_contact_number'); ?></span>
         </div>
+        <div class="form-group<?php echo form_error('email_id') ? ' error' : ''; ?>">
+            <?php echo form_label(lang('profile_field_email_id') . lang('bf_form_label_required'), 'email_id', array('class' => 'control-label')); ?>
+            <input tabindex='7' class="form-control" id='email_id' type='input' required='required' name='email_id' maxlength='255' value="<?php echo set_value('email_id', isset($profile->email_id) ? $profile->email_id : ''); ?> " />
+            <span class='help-inline'><?php echo form_error('email_id'); ?></span>
+        </div>
+        <br/><br/>
         <div class="form-group<?php echo form_error('address') ? ' error' : ''; ?>">
             <?php echo form_label(lang('profile_field_address'), 'address', array('class' => 'control-label')); ?>
-            <input tabindex='7' class="form-control" id='address' type='text' required='required' name='address' maxlength='255' value="<?php echo set_value('address', isset($profile->address) ? $profile->address : ''); ?>" />
+            <input tabindex='8' class="form-control" id='address' type='text' required='required' name='address' maxlength='255' value="<?php echo set_value('address', isset($profile->address) ? $profile->address : ''); ?>" />
             <span class='help-inline'><?php echo form_error('address'); ?></span>
         </div>
         <div class="form-group<?php echo form_error('city') ? ' error' : ''; ?>">
             <?php echo form_label(lang('profile_field_city') . lang('bf_form_label_required'), 'city', array('class' => 'control-label')); ?>
-            <input tabindex='8' class="form-control" id='city' type='text' required='required' name='city' maxlength='255' value="<?php echo set_value('city', isset($profile->city) ? $profile->city : ''); ?>" />
+            <input tabindex='9' class="form-control" id='city' type='text' required='required' name='city' maxlength='255' value="<?php echo set_value('city', isset($profile->city) ? $profile->city : ''); ?>" />
             <span class='help-inline'><?php echo form_error('city'); ?></span>
         </div>
         <div class="form-group">
@@ -74,22 +99,18 @@ $id = isset($profile->id) ? $profile->id : '';
         </div>
         <div class="form-group<?php echo form_error('post_code') ? ' error' : ''; ?>">
             <?php echo form_label(lang('profile_field_post_code'), 'post_code', array('class' => 'control-label')); ?>
-            <input tabindex='11' class="form-control" id='post_code' type='text' name='post_code' maxlength='10' value="<?php echo set_value('post_code', isset($profile->post_code) ? $profile->post_code : ''); ?>" />
+            <input tabindex='11' class="form-control" id='post_code' type='text' name='post_code' maxlength='11' value="<?php echo set_value('post_code', isset($profile->post_code) ? $profile->post_code : ''); ?>" />
             <span class='help-inline'><?php echo form_error('post_code'); ?></span>
         </div>
-        <div class="form-group<?php echo form_error('email_id') ? ' error' : ''; ?>">
-            <?php echo form_label(lang('profile_field_email_id') . lang('bf_form_label_required'), 'email_id', array('class' => 'control-label')); ?>
-            <input tabindex='12' class="form-control" id='email_id' type='email' required='required' name='email_id' maxlength='255' value="<?php echo set_value('email_id', isset($profile->email_id) ? $profile->email_id : ''); ?> " />
-            <span class='help-inline'><?php echo form_error('email_id'); ?></span>
-        </div>
+        <br/><br/>
         <div class="form-group<?php echo form_error('profile') ? ' error' : ''; ?>">
             <?php echo form_label(lang('profile_field_profile') . lang('bf_form_label_required'), 'profile', array('class' => 'control-label')); ?>
-            <?php echo form_textarea(array('class'=>'form-control', 'name' => 'profile', 'id' => 'profile', 'rows' => '8', 'cols' => '80', 'tabindex'=>'13', 'value' => set_value('profile', isset($profile->profile) ? $profile->profile : ''))); ?>
+            <?php echo form_textarea(array('class'=>'form-control', 'name' => 'profile', 'id' => 'profile', 'rows' => '8', 'cols' => '80', 'tabindex'=>'12', 'value' => set_value('profile', isset($profile->profile) ? $profile->profile : ''))); ?>
             <span class='help-inline'><?php echo form_error('profile'); ?></span>
         </div>
         <div class="form-group<?php echo form_error('addl_info') ? ' error' : ''; ?>">
             <?php echo form_label(lang('profile_field_addl_info'), 'addl_info', array('class' => 'control-label')); ?>
-            <?php echo form_textarea(array('class'=>'form-control', 'name' => 'addl_info', 'id' => 'addl_info', 'rows' => '8', 'cols' => '80',  'tabindex'=>'14', 'value' => set_value('addl_info', isset($profile->addl_info) ? $profile->addl_info : ''))); ?>
+            <?php echo form_textarea(array('class'=>'form-control', 'name' => 'addl_info', 'id' => 'addl_info', 'rows' => '8', 'cols' => '80',  'tabindex'=>'13', 'value' => set_value('addl_info', isset($profile->addl_info) ? $profile->addl_info : ''))); ?>
             <span class='help-inline'><?php echo form_error('addl_info'); ?></span>
         </div>
         <div class="form-group">
@@ -97,9 +118,8 @@ $id = isset($profile->id) ? $profile->id : '';
             <?php echo lang('bf_or'); ?>
             <?php echo anchor(base_url() . 'index.php/admin/content/team/create', lang('profile_action_create_team'), array('class'=>'btn btn-primary', 'tabindex'=>'15')); ?> 
             <?php echo lang('bf_or'); ?>
-            <?php echo anchor(base_url(), lang('profile_cancel'), 'class="btn btn-warning"', "tabindex='15'"); ?>
+            <?php echo anchor(base_url(), lang('profile_cancel'), 'class="btn btn-warning"', "tabindex='16'"); ?>
         </div>
-        <hr/>
     </div>
     <?php echo form_close(); ?>
 </div>

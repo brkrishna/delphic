@@ -1,6 +1,10 @@
     <?php if ( ! isset($show) || $show == true) : ?>
-    <!--<hr />-->
+    <hr />
     <footer class="footer">
+        <div class="row">
+            <p>In case of any issues, please write to : <a href="mailto:rk@youthdelhpicgames.com">rk@youthdelphicgames.com</a>
+            or call on <span class="glyphicon glyphicon-earphone"></span>&nbsp;<small>+91-9866 722 247</small></p>
+        </div>
         <!--<div class="container">
             <p>Powered by <a href="http://cibonfire.com" target="_blank">Bonfire <?php echo BONFIRE_VERSION; ?></a></p>
         </div>-->

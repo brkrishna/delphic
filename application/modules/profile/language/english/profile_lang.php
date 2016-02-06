@@ -54,7 +54,7 @@ $lang['profile_module_description'] = 'Entity Profile';
 $lang['profile_area_title'] = 'Profile';
 
 // Fields
-$lang['profile_field_entity_type'] = 'Type';
+$lang['profile_field_entity_type'] = 'Registration Type';
 $lang['profile_field_entity_name'] = 'Organization Name';
 $lang['profile_field_contact_name'] = 'Contact Name';
 $lang['profile_field_address'] = 'Address';

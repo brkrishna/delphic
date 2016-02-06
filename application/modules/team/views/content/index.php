@@ -96,5 +96,4 @@ if ($can_delete) {
     
     echo $this->pagination->create_links();
     ?>
-    <hr/>
 </div>

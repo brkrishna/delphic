@@ -26,7 +26,7 @@ $id = isset($registration_documents->id) ? $registration_documents->id : '';
             </div>
             <div class="form-group">
                 <?php foreach($registration as $row) { ?>
-                    <div class="controls"><span class="alert alert-success">You are adding documents for Category -> <?php e($row->category . ' -> ' . $row->style . ' -> ' . $row->performance); ?> Performance </span>
+                    <div class="controls"><span class="alert alert-success">You are adding documents for Category -> <?php e($row->category . ' -> ' . $row->style . ' -> ' . $row->performance); ?> Performance </span></div>
                 <?php } ?>
             </div>
             <br/>
@@ -51,7 +51,6 @@ $id = isset($registration_documents->id) ? $registration_documents->id : '';
                 <?php echo lang('bf_or'); ?>
                 <?php echo anchor(SITE_AREA . '/content/registration_documents/create/' . $registration_nbr, lang('registration_documents_cancel'), 'class="btn btn-warning"'); ?>
             </div>            
-        </div>
     <?php echo form_close(); ?>
     <br/>
     <?php
@@ -123,4 +122,5 @@ $id = isset($registration_documents->id) ? $registration_documents->id : '';
 	<?php
     echo form_close();
     ?>
+    </div>
 </div>

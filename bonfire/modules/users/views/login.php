@@ -1,7 +1,7 @@
 <?php
 	$site_open = $this->settings_lib->item('auth.allow_register');
 ?>
-<p><br/><a href="<?php echo site_url(); ?>">&larr; <?php echo lang('us_back_to') . $this->settings_lib->item('site.title'); ?></a></p>
+<!--<p><br/><a href="<?php echo site_url(); ?>">&larr; <?php echo lang('us_back_to') . $this->settings_lib->item('site.title'); ?></a></p>-->
 
 <div id="login">
 	<h2><?php echo lang('us_login'); ?></h2>
@@ -48,7 +48,10 @@
         <br/>
 		<div class="control-group">
 			<div class="controls">
-				<input class="btn btn-large btn-primary" type="submit" name="log-me-in" id="submit" value="<?php e(lang('us_let_me_in')); ?>" tabindex="5" />
+				<input class="btn btn-large btn-primary" type="submit" name="log-me-in" id="submit" value="<?php e(lang('us_let_me_in')); ?>" tabindex="5" />&nbsp;
+				<?php if ( $site_open ) : ?>
+					<a class="btn btn-large btn-primary" href="<?php e(REGISTER_URL, lang('us_register')); ?>"><?php echo(lang('us_register')); ?></a>
+				<?php endif; ?>
 			</div>
 		</div>
 	<?php echo form_close(); ?>
