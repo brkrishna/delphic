@@ -12,7 +12,7 @@
 ?>
 
 <?php if (empty($current_user)) : ?>
-    <div class="row-fluid">
+    <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-10" text-align="center">
         	<h1>V Youth Delphic Games</h1>
             <br/>
@@ -43,37 +43,26 @@
                     <a class="btn btn-primary" href="http://www.youthdelphicgames.com/downloads/Registration%20Guidelines.pdf"><span class="glyphicon glyphicon-download-alt"></span>&nbsp;Registration Guidelines</a>
                 </span>
             </p>
-            <p class="text-justify">
-                <h2>Registration Guidelines</h2>
-                <hr/>
-                The aim of this guide is to assist participants in registering with the games. The mandatory registration standards are listed below.
-                <ul>
-                    <li>One member from a team/group will register on behalf of the rest of the team.</li>
-                    <li>Participants are required to upload following documents:
-                        <ul>
-                            <li>Zip folder of Passport copies of all Members ( Mandatory)</li>
-                            <li>Bona Fide, Institutional Acknowledgement (if applicable)</li>
-                            <li>Acknowledgement letter (if applicable)</li>
-                            <li>Performance video, link, photos, certificates of past performances. (whatever is available)</li>
-                        </ul>
-                    </li>
-                    <li>The Registration requires the participants to fill in their personal details in the required fields whichever are marked mandatory that includes country name, name, e-mail id, contact number, passport number, address, date of expiry of passport, country issuing passport etc.</li>
-                    <li>Expiry date of passport should be more than 6 months.</li>
-                    <li>Mandatory Documents primarily includes Front and Back copy of the Passport of the participant. Passport Document is not mandatory if the participation is from the host country (India). Participation coming from Host Country are required to upload one identify proof document.</li>
-                    <li>If the participants are coming from an Institute, College, NGO , NDA, School or any other organisation the candidates are supposed to provide a copy of the institutional certificate (Bona fide, Institutional Acknowledgement).</li>
-                    <li>Participants under 18 years of age are required to submit an Acknowledgement Letter from the Parents/Guardian, accepting the terms and conditions of the participation.</li>
-                    <li>Participants are required to upload, documented proof of the respective talent. Artist's profile. Links for the videos, Audio Visuals (Video and Photographs) can be uploaded. Certificates and Photos of the documents can be uploaded in JPEG, PNG, PDF formats.</li>
-                    <li>Registration and Insurance are inclusive, the fees can be paid through the following
-                        <ul>
-                            <li>Payment methods :</li>
-                            <li>Credit Card</li>
-                            <li>Debit Card</li>
-                            <li>Net Banking</li>
-                        </ul>
-                    </li>
-                    </li>Participants are requested to go through Rules & Regulations before proceeding.</li>
-                </ul>
-            </p>
+            <div class="well well-lg">
+                <p class="text-justify">
+                    <h2>Registration Process - How it works</h2>
+                    <hr/>
+                    This is a four step process: 
+                    <ul>
+                        <li>Create your <strong>Profile</strong></li>
+                        <li>Setup your <strong>team</strong>, members who will participate in the event</li>
+                        <li>Register for <strong>Event(s)</strong></li>
+                        <li>Pay the Registration <strong>Fees</strong>, after reading through the Rules and Regulations</li>
+                    </ul>
+                    You can follow through the navigation buttons on top right for completing the registration process. A button with green color text indicates that you have completed the step and a button in orange needs your attention
+                    <br/><br/>
+                    Once you are done, please wait to hear from our jury for next steps and you can come back to check the status of your application
+                    <br/><br/>
+                    If your application is approved, you will hear on next steps, detailed schedule from us
+                    <br/>OR<br/>
+                    If your application is not approved, we will get back with detailed email on why you couldn't make it this time
+                </p>
+            </div>
         </div>
     </div>
 <?php endif; ?>

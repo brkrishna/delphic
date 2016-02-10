@@ -27,8 +27,8 @@ $lang['registration_documents_delete_confirm']  = 'Are you sure you want to dele
 $lang['registration_documents_edit_heading']    = 'Edit Registration Documents';
 
 // Create/Edit Buttons
-$lang['registration_documents_action_edit']   = 'Save Registration Documents';
-$lang['registration_documents_action_create']   = 'Create Registration Documents';
+$lang['registration_documents_action_edit']   = 'Update Documents';
+$lang['registration_documents_action_create']   = 'Add Documents';
 
 // Activities
 $lang['registration_documents_act_create_record'] = 'Created record with ID';
@@ -56,6 +56,6 @@ $lang['registration_documents_area_title'] = 'Registration Documents';
 $lang['registration_documents_field_profile'] = 'Profile';
 $lang['registration_documents_field_registration'] = 'Registration';
 $lang['registration_documents_field_attachment'] = 'Attachment';
-$lang['registration_documents_field_title'] = 'Title';
+$lang['registration_documents_field_title'] = 'Document Title';
 $lang['registration_documents_field_comments'] = 'Comments';
 $lang['form_validation_file_required'] = 'Please attach a document';

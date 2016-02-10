@@ -78,17 +78,17 @@ class Team_model extends BF_Model
 		array(
 			'field' => 'contact_nbr',
 			'label' => 'lang:team_field_contact_nbr',
-			'rules' => 'max_length[255]',
+			'rules' => 'trim|required|min_length[10]|max_length[14]',
 		),
 		array(
 			'field' => 'alt_contact_nbr',
 			'label' => 'lang:team_field_alt_contact_nbr',
-			'rules' => 'max_length[50]',
+			'rules' => 'trim|min_length[10]|max_length[14]',
 		),
 		array(
 			'field' => 'email',
 			'label' => 'lang:team_field_email',
-			'rules' => 'valid_email|max_length[255]',
+			'rules' => 'trim|required|valid_email|max_length[255]',
 		),
 		array(
 			'field' => 'profession',

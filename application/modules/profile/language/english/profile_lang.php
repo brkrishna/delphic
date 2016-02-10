@@ -29,7 +29,7 @@ $lang['profile_edit_heading']    = 'Edit Profile';
 // Create/Edit Buttons
 $lang['profile_action_edit']   = 'Save Profile';
 $lang['profile_action_create']   = 'Save Profile';
-$lang['profile_action_create_team']   = 'Continue to Add Team';
+$lang['profile_action_create_team']   = 'Continue to Add Team Member';
 
 // Activities
 $lang['profile_act_create_record'] = 'Created record with ID';
@@ -68,3 +68,6 @@ $lang['profile_field_regn_nbr'] = 'Registration Number';
 $lang['profile_field_profile'] = 'Brief Profile';
 $lang['profile_field_addl_info'] = 'Additional Info';
 $lang['profile_field_image'] = 'Attachment';
+
+// Validations
+$lang['form_validation_phone_regex'] = 'Please enter a valid phone number. Should contain 10 - 14 digits without spaces or any special characters';

@@ -20,23 +20,12 @@ if ($can_delete) {
 					<?php if ($can_delete && $has_records) : ?>
 					<th class='column-check'><input class='check-all' type='checkbox' /></th>
 					<?php endif;?>
-					
-					<!--<th><?php echo lang('team_field_profile_id'); ?></th>-->
 					<th><?php echo lang('team_field_name'); ?></th>
 					<th><?php echo lang('team_field_gender'); ?></th>
 					<th><?php echo lang('team_field_dob'); ?></th>
 					<th><?php echo lang('team_field_contact_nbr'); ?></th>
 					<th><?php echo lang('team_field_email'); ?></th>
 					<th><?php echo lang('team_field_profession'); ?></th>
-					<!--<th><?php echo lang('team_field_profile'); ?></th>
-					<th><?php echo lang('team_field_passport_nbr'); ?></th>
-					<th><?php echo lang('team_field_place_of_issue'); ?></th>
-					<th><?php echo lang('team_field_date_of_issue'); ?></th>
-					<th><?php echo lang('team_field_date_of_expiry'); ?></th>
-					<th><?php echo lang('team_field_attachment'); ?></th>
-					<th><?php echo lang('team_column_deleted'); ?></th>
-					<th><?php echo lang('team_column_created'); ?></th>
-					<th><?php echo lang('team_column_modified'); ?></th>-->
 				</tr>
 			</thead>
 			<?php if ($has_records) : ?>
@@ -71,15 +60,6 @@ if ($can_delete) {
 					<td><?php e($record->contact_nbr); ?></td>
 					<td><?php e($record->email); ?></td>
 					<td><?php e($record->profession); ?></td>
-					<!--<td><?php e($record->profile); ?></td>
-					<td><?php e($record->passport_nbr); ?></td>
-					<td><?php e($record->place_of_issue); ?></td>
-					<td><?php e($record->date_of_issue); ?></td>
-					<td><?php e($record->date_of_expiry); ?></td>
-					<td><?php e($record->attachment); ?></td>
-					<td><?php echo $record->deleted > 0 ? lang('team_true') : lang('team_false'); ?></td>
-					<td><?php e($record->created_on); ?></td>
-					<td><?php e($record->modified_on); ?></td>-->
 				</tr>
 				<?php
 					endforeach;
@@ -96,4 +76,11 @@ if ($can_delete) {
     
     echo $this->pagination->create_links();
     ?>
+    <div class="well well-lg">
+        <p class="text-justify">
+            <h2>What is this Team?</h2>
+            <hr/>
+            If you are a group of performers, you will create entries for each team member here. Once added, you can map these team members as participants for various events
+        </p>
+    </div>
 </div>

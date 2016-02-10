@@ -75,4 +75,20 @@ if ($can_delete) {
     
     echo $this->pagination->create_links();
     ?>
+    <div class="well well-lg">
+        <p class="text-justify">
+            <h2>What is this Registration for?</h2>
+            <hr/>
+            To enroll for an event and indicate your participants (team members) and showcase your artifacts (as document attachments) to 
+            substantiate your application 
+            <br/><br/>
+            Steps involved
+            <ul>    
+                <li>Click on Add Event</li>
+                <li>Choose the Art Category, Style and Performance, add any additional information</li>
+                <li>Add Team members against the registation</li>
+                <li>Attach documents with title and notes to substantiate your application</li>
+            </ul>
+        </p>
+    </div>
 </div>

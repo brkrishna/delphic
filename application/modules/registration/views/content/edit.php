@@ -74,7 +74,7 @@ $id = isset($registration->id) ? $registration->id : '';
     <hr/>
     <h4>Create Registration</h4>
     <?php echo form_open($this->uri->uri_string(), 'class="form-horizontal"'); ?>
-        <div class="col-xs-12 col-sm-6 col-md-6">
+        <div class="col-xs-12 col-sm-6 col-md-8">
             <div class="form-group">
     			<?php 
                     if (is_array($categories_select) && count($categories_select)) :
@@ -103,6 +103,8 @@ $id = isset($registration->id) ? $registration->id : '';
             </div>
             <div class="form-group">
                 <input type='submit' name='save' class='btn btn-primary' value="<?php echo lang('registration_action_create'); ?>" />
+                <?php echo lang('bf_or'); ?>
+                <?php echo anchor(base_url() . 'index.php/admin/content/registration_team/create/' . $registration->id, lang('registration_action_add_team'), array('class'=>'btn btn-primary',)); ?> 
                 <?php echo lang('bf_or'); ?>
                 <?php echo anchor(SITE_AREA . '/content/registration', lang('registration_cancel'), 'class="btn btn-warning"'); ?>
             </div>

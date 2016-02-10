@@ -27,8 +27,9 @@ $lang['registration_delete_confirm']  = 'Are you sure you want to delete this re
 $lang['registration_edit_heading']    = 'Edit Registration';
 
 // Create/Edit Buttons
-$lang['registration_action_edit']   = 'Save Registration';
-$lang['registration_action_create']   = 'Create Registration';
+$lang['registration_action_edit']   = 'Register for an Event';
+$lang['registration_action_create']   = 'Register for an Event';
+$lang['registration_action_add_team']   = 'Continue to Add Participant';
 
 // Activities
 $lang['registration_act_create_record'] = 'Created record with ID';

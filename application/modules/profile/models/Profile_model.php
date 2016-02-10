@@ -83,17 +83,17 @@ class Profile_model extends BF_Model
 		array(
 			'field' => 'contact_number',
 			'label' => 'lang:profile_field_contact_number',
-			'rules' => 'required|max_length[50]',
+			'rules' => 'trim|required|min_length[10]|max_length[14]',
 		),
 		array(
 			'field' => 'alt_contact_number',
 			'label' => 'lang:profile_field_alt_contact_number',
-			'rules' => 'max_length[50]',
+			'rules' => 'trim|required|min_length[10]|max_length[14]',
 		),
 		array(
 			'field' => 'email_id',
 			'label' => 'lang:profile_field_email_id',
-			'rules' => 'required|valid_email|max_length[255]',
+			'rules' => 'trim|required|valid_email',
 		),
 		array(
 			'field' => 'regn_nbr',

@@ -44,6 +44,7 @@ $id = isset($registration_documents->id) ? $registration_documents->id : '';
             </div>
             <br/>
             <div class="form-group<?php echo form_error('title') ? ' error' : ''; ?>">
+                <?php echo form_label(lang('registration_documents_field_title'), 'title', array('class' => 'control-label')); ?>
                 <div class='controls'>
                     <input class="form-control" id='title' type='text' name='title' value="<?php echo set_value('title', isset($registration_documents->title) ? $registration_documents->title : '' ); ?>" />
                     <span class='help-inline'><?php echo form_error('title'); ?></span>

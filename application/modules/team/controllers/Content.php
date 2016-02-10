@@ -25,7 +25,7 @@ class Content extends Admin_Controller
         
         Assets::add_css('flick/jquery-ui-1.8.13.custom.css');
         Assets::add_js('jquery-ui-1.8.13.min.js');
-        $this->form_validation->set_error_delimiters("<span class='error'>", "</span>");
+        $this->form_validation->set_error_delimiters("<div class='alert alert-danger'>", "</div>");
         
         Template::set_block('sub_nav', 'content/_sub_nav');
 
@@ -112,7 +112,7 @@ class Content extends Admin_Controller
         }
 
         Template::set('toolbar_title', lang('team_action_create'));
-
+        Template::set_view('content/edit');
         Template::render();
     }
     /**
@@ -163,6 +163,42 @@ class Content extends Admin_Controller
         Template::render();
     }
 
+    function phone_regex($input_val){
+        if(preg_match('/^[0-9]{10,14}$/', $input_val)){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    function is_birthdate($date)
+    {
+        if (empty($date) || $date == '0000-00-00')
+            return false;
+        if (preg_match('/^([0-9]{4})-((?:0?[1-9])|(?:1[0-2]))-((?:0?[1-9])|(?:[1-2][0-9])|(?:3[01]))([0-9]{2}:[0-9]{2}:[0-9]{2})?$/', $date, $birth_date))
+        {
+            if (date('Y')-$birth_date[1]<=18)
+                return false;  
+            if ($birth_date[1] > date('Y') && $birth_date[2] > date('m') && $birth_date[3] > date('d'))
+                return false;
+            return true;
+        }
+        return false;
+    }
+
+    function is_valid_dt_of_issue($date){
+        if (empty($date) || $date == '0000-00-00')
+            return false;
+        if (preg_match('/^([0-9]{4})-((?:0?[1-9])|(?:1[0-2]))-((?:0?[1-9])|(?:[1-2][0-9])|(?:3[01]))([0-9]{2}:[0-9]{2}:[0-9]{2})?$/', $date, $issue_date))
+        {
+            if (date('Y')-$issue_date[1]<=1)
+                return false;  
+            if ($issue_date[1] > date('Y') && $issue_date[2] > date('m') && $issue_date[3] > date('d'))
+                return false;
+            return true;
+        }
+        return false;
+    }
     //--------------------------------------------------------------------------
     // !PRIVATE METHODS
     //--------------------------------------------------------------------------
@@ -184,6 +220,13 @@ class Content extends Admin_Controller
 
         // Validate the data
         $this->form_validation->set_rules($this->team_model->get_validation_rules());
+        $this->form_validation->set_rules('contact_nbr', 'Contact Number', 'callback_phone_regex');
+        $this->form_validation->set_rules('dob', 'Date of Birth', 'callback_is_birthdate');
+        $this->form_validation->set_rules('date_of_issue', 'Date of Issue', 'callback_is_valid_dt_of_issue');
+        if ($this->input->post('alt_contact_nbr') != ''){
+            $this->form_validation->set_rules('alt_contact_nbr', 'Alternate Contact Number', 'callback_phone_regex');
+        }
+
         if ($this->form_validation->run() === false) {
             return false;
         }

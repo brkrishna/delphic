@@ -152,3 +152,7 @@ hr{
 .nav > li > a {
     color: #444;
 }
+span .error{
+	color:red;
+	background-color: orange;
+}

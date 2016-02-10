@@ -29,7 +29,7 @@ $lang['team_edit_heading']    = 'Edit Team';
 // Create/Edit Buttons
 $lang['team_action_edit']   = 'Save Team Member';
 $lang['team_action_create']   = 'Save Team Member';
-$lang['team_action_create_event']   = 'Continue to Register for Event';
+$lang['team_action_create_event']   = 'Continue to Register for an Event';
 
 // Activities
 $lang['team_act_create_record'] = 'Created record with ID';
@@ -71,4 +71,10 @@ $lang['team_field_date_of_issue'] = 'Date of Issue';
 $lang['team_field_date_of_expiry'] = 'Date of Expiry';
 $lang['team_field_attachment_type'] = 'ID Proof Type';
 $lang['team_field_attachment'] = 'ID Proof';
+
+// Validations
 $lang['form_validation_validate_age'] = 'Cannot register a person less than 18 years old';
+$lang['form_validation_phone_regex'] = 'Please enter a valid phone number. Should contain 10 - 14 digits without spaces or any special characters';
+$lang['form_validation_is_birthdate'] = 'Please check %s, a person should be more than 18 years of age';
+$lang['form_validation_is_valid_dt_of_issue'] = 'Please check %s, should be less than 3 months from today\'s date';
+$lang['form_validation_is_valid_dt_of_expiry'] = 'Please check %s, should be more than 6 months from today\'s date';

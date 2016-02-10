@@ -24,7 +24,7 @@ class Content extends Admin_Controller
         $this->load->model('countries_model');
         $this->lang->load('profile');
         
-        $this->form_validation->set_error_delimiters("<span class='error'>", "</span>");
+        $this->form_validation->set_error_delimiters("<div class='alert alert-danger'>", "</div>");
             
         Template::set_block('sub_nav', 'content/_sub_nav');
         Assets::add_module_js('profile', 'profile.js');
@@ -116,7 +116,7 @@ class Content extends Admin_Controller
         }
 
         Template::set('toolbar_title', lang('profile_action_create'));
-
+        Template::set_view('content/edit');    
         Template::render();
     }
     /**
@@ -180,6 +180,15 @@ class Content extends Admin_Controller
      * @return boolean|integer An ID for successful inserts, true for successful
      * updates, else false.
      */
+
+    public function phone_regex($input_val){
+        if(preg_match('/^[0-9]{10,14}$/', $input_val)){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
     private function save_profile($type = 'insert', $id = 0)
     {
         if ($type == 'update') {
@@ -188,9 +197,13 @@ class Content extends Admin_Controller
 
         // Validate the data
         $this->form_validation->set_rules($this->profile_model->get_validation_rules());
-        if ($this->form_validation->run() === false) {
+        $this->form_validation->set_rules('contact_number', 'Contact Number', 'callback_phone_regex');
+        $this->form_validation->set_rules('alt_contact_number', 'Alternate Contact Number', 'callback_phone_regex');
+        
+        if ($this->form_validation->run($this) === false) {
             return false;
         }
+
 
 		// make sure we only pass in the fields we want
         $data = $this->profile_model->prep_data($this->input->post());
