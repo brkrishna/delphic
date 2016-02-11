@@ -33,3 +33,6 @@
                 <?php endif; ?>
             </li>
         </ul>
+        <div class="alert">
+            <h4><u>Application Status:</u>&nbsp;<span style="color:green;">In Progress</span>&nbsp;&#10143;&nbsp;Awaiting Approval&nbsp;&#10143;&nbsp;Approved / Not Approved</h4>
+        </div>

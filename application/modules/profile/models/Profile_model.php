@@ -58,7 +58,12 @@ class Profile_model extends BF_Model
 		array(
 			'field' => 'contact_name',
 			'label' => 'lang:profile_field_contact_name',
-			'rules' => 'required|max_length[255]',
+			'rules' => 'trim|required|max_length[255]',
+		),
+		array(
+			'field' => 'contact_last_name',
+			'label' => 'lang:profile_field_contact_last_name',
+			'rules' => 'trim|max_length[255]',
 		),
 		array(
 			'field' => 'address',
@@ -103,7 +108,7 @@ class Profile_model extends BF_Model
 		array(
 			'field' => 'profile',
 			'label' => 'lang:profile_field_profile',
-			'rules' => 'required|max_length[1000]',
+			'rules' => 'max_length[1000]',
 		),
 		array(
 			'field' => 'addl_info',

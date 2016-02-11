@@ -534,4 +534,4 @@ $config['rewrite_short_tags'] = false;
  */
 $config['proxy_ips'] = '';
 
-$config['upload_dir'] = '/home/bramakrishna/Web/delphic/public/uploads';
+$config['upload_dir'] = '/var/www/html/delphic/public/uploads';

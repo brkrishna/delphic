@@ -93,7 +93,7 @@ class Team_model extends BF_Model
 		array(
 			'field' => 'profession',
 			'label' => 'lang:team_field_profession',
-			'rules' => 'max_length[255]',
+			'rules' => 'trim|required|max_length[255]',
 		),
 		array(
 			'field' => 'profile',
@@ -128,7 +128,7 @@ class Team_model extends BF_Model
 		array(
 			'field' => 'attachment_type',
 			'label' => 'lang:team_field_attachment_type',
-			'rules' => 'max_length[255]',
+			'rules' => 'trim|required|min_length[4]|max_length[255]',
 		),
 	);
 	protected $insert_validation_rules  = array();

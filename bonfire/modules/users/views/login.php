@@ -69,10 +69,12 @@
 	<?php endif; ?>
 
 	<p style="text-align: center">
-		<?php if ( $site_open ) : ?>
+		<!--<?php if ( $site_open ) : ?>
 			<?php echo anchor(REGISTER_URL, lang('us_sign_up')); ?>
-		<?php endif; ?>
-
+		<?php endif; ?>-->
+		Already have an account?, <strong>Sign In</strong><br/>
+		Don't have an account, <strong>Register</strong>
+		<br/>
 		<br/><?php echo anchor('/forgot_password', lang('us_forgot_your_password')); ?>
 	</p>
 

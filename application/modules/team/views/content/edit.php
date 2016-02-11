@@ -21,15 +21,20 @@ $id = isset($team->id) ? $team->id : '';
     <h4>Team Member</h4>
     <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="form-group">
-        <?php // Change the values in this array to populate your dropdown as required
-            
-            $options = array(
-                'Indian Citizen' => 'Indian Citizen',
-                'International Participant' => 'International Participant'
-            );
-            echo form_dropdown(array('name' => 'member_type', 'class'=>'form-control', 'tabindex'=>'1', 'required'=>'', 'autofocus'=>''), $options, set_value('member_type', isset($team->member_type) ? $team->member_type : ''), lang('team_field_member_type') . lang('bf_form_label_required'));
-        ?>
+            <div class="input-group">
+                <span class="input-group-addon" tabindex="1">
+                    <input type="radio" id="member_type_ic" required name="member_type" value="Indian Citizen" 
+                    <?php echo (isset($team->member_type) && $team->member_type == 'Indian Citizen' ? 'checked="true"' : ''); ?> />
+                </span>
+                <label class="form-control">Indian Citizen</label>
+                <span class="input-group-addon">
+                    <input type="radio" id="member_type_ip" name="member_type" value="International Participant" 
+                    <?php echo (isset($team->member_type) && $team->member_type == 'International Participant' ? 'checked="true"' : ''); ?> />
+                </span>
+                <label class="form-control">International Participant</label>
+            </div>
         </div>
+
         <div class="form-group<?php echo form_error('name') ? ' error' : ''; ?>">
             <?php echo form_label(lang('team_field_name') . lang('bf_form_label_required'), 'name', array('class' => 'control-label')); ?>
             <input class='form-control' tabindex='2' id='name' type='text' required name='name' maxlength='255' value="<?php echo set_value('name', isset($team->name) ? $team->name : ''); ?>" />
@@ -37,55 +42,76 @@ $id = isset($team->id) ? $team->id : '';
         </div>
         <div class="form-group<?php echo form_error('last_name') ? ' error' : ''; ?>">
             <?php echo form_label(lang('team_field_last_name') . lang('bf_form_label_required'), 'last_name', array('class' => 'control-label')); ?>
-            <input class='form-control' tabindex='3' id='name' type='text' name='last_name' maxlength='255' value="<?php echo set_value('last_name', isset($team->last_name) ? $team->last_name : ''); ?>" />
+            <input class='form-control' tabindex='3' id='name' type='text' required name='last_name' maxlength='255' value="<?php echo set_value('last_name', isset($team->last_name) ? $team->last_name : ''); ?>" />
             <span class='help-inline'><?php echo form_error('last_name'); ?></span>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon" tabindex="4">
+                    <input type="radio" id="gender_m" required name="gender" value="Male" 
+                    <?php echo (isset($team->gender) && $team->gender == 'Male' ? 'checked="true"' : ''); ?> />
+                </span>
+                <label class="form-control">Male</label>
+                <span class="input-group-addon">
+                    <input type="radio" id="gender_f" name="gender" value="Female" 
+                    <?php echo (isset($team->gender) && $team->gender == 'Female' ? 'checked="true"' : ''); ?> />
+                </span>
+                <label class="form-control">Female</label>
+                <span class="input-group-addon">
+                    <input type="radio" id="gender_o" name="gender" value="Others" 
+                    <?php echo (isset($team->gender) && $team->gender == 'Others' ? 'checked="true"' : ''); ?> />
+                </span>
+                <label class="form-control">Others</label>
+            </div>
         </div>
         <div class="form-group<?php echo form_error('dob') ? ' error' : ''; ?>">
             <?php echo form_label(lang('team_field_dob') . lang('bf_form_label_required'), 'dob', array('class' => 'control-label')); ?>
-            <input class='form-control' tabindex='4' id='dob' type='text' name='dob' maxlength='255' value="<?php echo set_value('dob', isset($team->dob) ? $team->dob : ''); ?>" tabindex='4' />
+            <input class='form-control' tabindex='5' id='dob' type='text' required name='dob' placeholder="YYYY-MM-DD" maxlength='255' value="<?php echo set_value('dob', isset($team->dob) ? $team->dob : ''); ?>" tabindex='4' />
             <span class='help-inline'><?php echo form_error('dob'); ?></span>
         </div>
         <div class="form-group<?php echo form_error('contact_nbr') ? ' error' : ''; ?>">
             <?php echo form_label(lang('team_field_contact_nbr') . lang('bf_form_label_required'), 'contact_nbr', array('class' => 'control-label')); ?>
-            <input class='form-control' tabindex='5' id='contact_nbr' type='text' name='contact_nbr' maxlength='255' value="<?php echo set_value('contact_nbr', isset($team->contact_nbr) ? $team->contact_nbr : ''); ?>" />
+            <input class='form-control' tabindex='6' id='contact_nbr' required type='text' name='contact_nbr' placeholder="only digits without spaces or special characters" maxlength='255' value="<?php echo set_value('contact_nbr', isset($team->contact_nbr) ? $team->contact_nbr : ''); ?>" />
             <span class='help-inline'><?php echo form_error('contact_nbr'); ?></span>
         </div>
         <div class="form-group<?php echo form_error('alt_contact_nbr') ? ' error' : ''; ?>">
             <?php echo form_label(lang('team_field_alt_contact_nbr'), 'alt_contact_nbr', array('class' => 'control-label')); ?>
-            <input class='form-control' tabindex='6' id='alt_contact_nbr' type='text' name='alt_contact_nbr' maxlength='50' value="<?php echo set_value('alt_contact_nbr', isset($team->alt_contact_nbr) ? $team->alt_contact_nbr : ''); ?>" />
+            <input class='form-control' tabindex='7' id='alt_contact_nbr' type='text' name='alt_contact_nbr' placeholder="only digits without spaces or special characters" maxlength='50' value="<?php echo set_value('alt_contact_nbr', isset($team->alt_contact_nbr) ? $team->alt_contact_nbr : ''); ?>" />
             <span class='help-inline'><?php echo form_error('alt_contact_nbr'); ?></span>
         </div>
         <div class="form-group<?php echo form_error('email') ? ' error' : ''; ?>">
             <?php echo form_label(lang('team_field_email') . lang('bf_form_label_required'), 'email', array('class' => 'control-label')); ?>
-            <input class='form-control' tabindex='7' id='email' type='text' name='email' maxlength='255' value="<?php echo set_value('email', isset($team->email) ? $team->email : ''); ?>" />
+            <input class='form-control' tabindex='8' id='email' type='text' required name='email' maxlength='255' placeholder="myname@example.com" value="<?php echo set_value('email', isset($team->email) ? $team->email : ''); ?>" />
             <span class='help-inline'><?php echo form_error('email'); ?></span>
         </div>
         <div class="form-group<?php echo form_error('profession') ? ' error' : ''; ?>">
-            <?php echo form_label(lang('team_field_profession'), 'profession', array('class' => 'control-label')); ?>
-            <input class='form-control' tabindex='8' id='profession' type='text' name='profession' maxlength='255' value="<?php echo set_value('profession', isset($team->profession) ? $team->profession : ''); ?>" />
+            <?php echo form_label(lang('team_field_profession') . lang('bf_form_label_required'), 'profession', array('class' => 'control-label')); ?>
+            <input class='form-control' tabindex='9' id='profession' type='text' required name='profession' maxlength='255' value="<?php echo set_value('profession', isset($team->profession) ? $team->profession : ''); ?>" />
             <span class='help-inline'><?php echo form_error('profession'); ?></span>
         </div>
-
+        <h5>Passport Details&nbsp;<small>Required for International Participants</small></h5>
+        <hr/>    
         <div class="form-group<?php echo form_error('passport_nbr') ? ' error' : ''; ?>">
             <?php echo form_label(lang('team_field_passport_nbr'), 'passport_nbr', array('class' => 'control-label')); ?>
-            <input class='form-control' tabindex='9' id='passport_nbr' type='text' name='passport_nbr' maxlength='255' value="<?php echo set_value('passport_nbr', isset($team->passport_nbr) ? $team->passport_nbr : ''); ?>" />
+            <input class='form-control' tabindex='10' id='passport_nbr' type='text' name='passport_nbr' maxlength='255' value="<?php echo set_value('passport_nbr', isset($team->passport_nbr) ? $team->passport_nbr : ''); ?>" />
             <span class='help-inline'><?php echo form_error('passport_nbr'); ?></span>
         </div>
         <div class="form-group<?php echo form_error('place_of_issue') ? ' error' : ''; ?>">
             <?php echo form_label(lang('team_field_place_of_issue'), 'place_of_issue', array('class' => 'control-label')); ?>
-            <input class="form-control" tabindex='10' id='place_of_issue' type='text' name='place_of_issue' maxlength='255' value="<?php echo set_value('place_of_issue', isset($team->place_of_issue) ? $team->place_of_issue : ''); ?>" />
+            <input class="form-control" tabindex='11' id='place_of_issue' type='text' name='place_of_issue' maxlength='255' value="<?php echo set_value('place_of_issue', isset($team->place_of_issue) ? $team->place_of_issue : ''); ?>" />
             <span class='help-inline'><?php echo form_error('place_of_issue'); ?></span>
         </div>
         <div class="form-group<?php echo form_error('date_of_issue') ? ' error' : ''; ?>">
             <?php echo form_label(lang('team_field_date_of_issue'), 'date_of_issue', array('class' => 'control-label')); ?>
-            <input class='form-control' tabindex='11' id='date_of_issue' type='text' name='date_of_issue'  value="<?php echo set_value('date_of_issue', isset($team->date_of_issue) ? $team->date_of_issue : ''); ?>" />
+            <input class='form-control' tabindex='12' id='date_of_issue' type='text' placeholder="YYYY-MM-DD" name='date_of_issue'  value="<?php echo set_value('date_of_issue', isset($team->date_of_issue) ? $team->date_of_issue : ''); ?>" />
             <span class='help-inline'><?php echo form_error('date_of_issue'); ?></span>
         </div>
         <div class="form-group<?php echo form_error('date_of_expiry') ? ' error' : ''; ?>">
             <?php echo form_label(lang('team_field_date_of_expiry'), 'date_of_expiry', array('class' => 'control-label')); ?>
-            <input class='form-control' tabindex='12' id='date_of_expiry' type='text' name='date_of_expiry'  value="<?php echo set_value('date_of_expiry', isset($team->date_of_expiry) ? $team->date_of_expiry : ''); ?>" />
+            <input class='form-control' tabindex='13' id='date_of_expiry' type='text' placeholder="YYYY-MM-DD" name='date_of_expiry'  value="<?php echo set_value('date_of_expiry', isset($team->date_of_expiry) ? $team->date_of_expiry : ''); ?>" />
             <span class='help-inline'><?php echo form_error('date_of_expiry'); ?></span>
         </div>
+        <hr/>
         <div class="form-group">
         <?php // Change the values in this array to populate your dropdown as required
             
@@ -97,7 +123,7 @@ $id = isset($team->id) ? $team->id : '';
                 'Driving License' => 'Driving License',
                 'Other'=>'Other'
             );
-            echo form_dropdown(array('name' => 'attachment_type', 'class'=>'form-control', 'tabindex'=>'13', 'required'=>'', 'autofocus'=>''), $options, set_value('attachment_type', isset($team->attachment_type) ? $team->attachment_type : ''), lang('team_field_attachment_type') . lang('bf_form_label_required') );
+            echo form_dropdown(array('name' => 'attachment_type', 'class'=>'form-control', 'required'=> '', 'tabindex'=>'14', ), $options, set_value('attachment_type', isset($team->attachment_type) ? $team->attachment_type : ''), lang('team_field_attachment_type') . lang('bf_form_label_required') );
         ?>
         </div>
         <div class="form-group<?php echo form_error('attachment') ? ' error' : ''; ?>">
@@ -105,14 +131,9 @@ $id = isset($team->id) ? $team->id : '';
             <?php if(isset($team->attachment)) : ?>
                 <?php echo(isset($team->attachment) ? anchor(base_url() . 'uploads/' . unserialize($team->attachment)['file_name'], unserialize($team->attachment)['file_name']) : ''); ?>
             <?php endif; ?>
-            <input class="btn btn-primary" tabindex='14' id='attachment' type='file' name='attachment' maxlength='4000' value="<?php echo set_value('attachment', isset($team->attachment) ? $team->attachment : ''); ?>" />
+            <input class="btn btn-primary" tabindex='15' id='attachment' type='file' name='attachment' maxlength='4000' value="<?php echo set_value('attachment', isset($team->attachment) ? $team->attachment : ''); ?>" />
             <span class='help-inline'><?php echo form_error('attachment'); ?></span>
         </div>
-        <div class="form-group<?php echo form_error('profile') ? ' error' : ''; ?>">
-            <?php echo form_label(lang('team_field_profile'), 'profile', array('class' => 'control-label')); ?>
-            <?php echo form_textarea(array('class'=>'form-control', 'tabindex'=>'15', 'name' => 'profile', 'id' => 'profile', 'rows' => '5', 'cols' => '80', 'value' => set_value('profile', isset($team->profile) ? $team->profile : ''))); ?>
-            <span class='help-inline'><?php echo form_error('profile'); ?></span>
-        </div>       
     </div>
     <div class="col-xs-12 col-sm-10 col-md-8">
         <div class="well well-lg">
@@ -120,6 +141,10 @@ $id = isset($team->id) ? $team->id : '';
                 <h2>What is this Team?</h2>
                 <hr/>
                 If you are a group of performers, you will create entries for each team member here. Once added, you can map these team members as participants for various events
+                <br/><br/>
+                For contact number and alternate contact number, please specify only digits with ISD code where applicable 
+                <br/><br/>
+                Please enter the dates in YYYY-MM-DD format, optionally you can select the date from calendar as well
                 <br/><br/>
                 Note: For International Participants, passport details are mandatory
                 <br/><br/>
@@ -135,14 +160,19 @@ $id = isset($team->id) ? $team->id : '';
 </div>
 <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8">
+        <div class="form-group<?php echo form_error('profile') ? ' error' : ''; ?>">
+            <?php echo form_label(lang('team_field_profile'), 'profile', array('class' => 'control-label')); ?>
+            <?php echo form_textarea(array('class'=>'form-control', 'tabindex'=>'16', 'name' => 'profile', 'id' => 'profile', 'rows' => '5', 'cols' => '80', 'value' => set_value('profile', isset($team->profile) ? $team->profile : ''))); ?>
+            <span class='help-inline'><?php echo form_error('profile'); ?></span>
+        </div>       
         <div class="form-group">
-            <input tabindex='16' type='submit' name='save' class='btn btn-primary' value="<?php echo lang('team_action_create'); ?>" />
+            <input tabindex='17' type='submit' name='save' class='btn btn-primary' value="<?php echo lang('team_action_create'); ?>" />
             <?php echo lang('bf_or'); ?>
             <?php if(isset($team->id)) : ?>
-            <?php echo anchor(base_url() . 'index.php/admin/content/registration/create', lang('team_action_create_event'), array('class'=>'btn btn-primary', 'tabindex'=>'17')); ?> 
+            <?php echo anchor(base_url() . 'index.php/admin/content/registration/create', lang('team_action_create_event'), array('class'=>'btn btn-primary', 'tabindex'=>'18')); ?> 
             <?php echo lang('bf_or'); ?>
             <?php endif; ?>
-            <?php echo anchor(SITE_AREA . '/content/team', lang('team_cancel'), array('class'=>'btn btn-warning', 'tabindex'=>'18')); ?>
+            <?php echo anchor(SITE_AREA . '/content/team', lang('team_cancel'), array('class'=>'btn btn-warning', 'tabindex'=>'19')); ?>
         </div>            
     </div>
 </div>

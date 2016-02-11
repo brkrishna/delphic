@@ -16,13 +16,8 @@
 	    </ul>
 	</div>
 	<div class="col-md-8">
-		<hr/>
 	    <ul class="nav nav-pills pull-right">
 	        <?php echo Modules::run('profile/profile_status'); ?>
-	    	<div class="alert">
-	    		<small>Registration Status:<strong>&nbsp;In Progress</strong></small>
-	    	</div>
-
 	    </ul>
 	</div>
     <?php endif; ?>

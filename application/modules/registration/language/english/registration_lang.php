@@ -58,4 +58,4 @@ $lang['registration_field_profile_id'] = 'Profile Id';
 $lang['registration_field_category'] = 'Category';
 $lang['registration_field_style'] = 'Style';
 $lang['registration_field_performance'] = 'Performance';
-$lang['registration_field_comments'] = 'Comments';
+$lang['registration_field_comments'] = 'Remarks';

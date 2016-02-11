@@ -62,6 +62,16 @@
                     <br/>OR<br/>
                     If your application is not approved, we will get back with detailed email on why you couldn't make it this time
                 </p>
+                <br/>
+                <p class="text-center">
+                    <?php if (isset($profile_count) && $profile_count > 0) : ?>
+                        <?php ($current_user_role_id == 7 ? $url = base_url() . 'index.php/admin/content/profile/edit/' . $this->session->userdata('profile_id') : $url = 'content/profile'); ?>
+                        <a class="btn btn-primary" href="<?php echo ($url); ?>"><span class="glyphicon glyphicon-th-large"></span>&nbsp;Edit Profile</a>
+                    <?php else : ?>
+                        <?php ($current_user_role_id == 7 ? $url = base_url() . 'index.php/admin/content/profile/create' : $url = 'content/profile'); ?>
+                        <a class="btn btn-primary" href="<?php echo ($url); ?>"><span class="glyphicon glyphicon-th-large"></span>&nbsp;Start Registration Process</a>
+                    <?php endif; ?>
+                </p>
             </div>
         </div>
     </div>
