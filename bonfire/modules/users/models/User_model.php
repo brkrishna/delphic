@@ -66,12 +66,12 @@ class User_model extends BF_Model
         array(
             'field' => 'language',
             'label' => 'lang:bf_language',
-            'rules' => 'required|trim',
+            'rules' => 'trim',
         ),
         array(
             'field' => 'timezones',
             'label' => 'lang:bf_timezone',
-            'rules' => 'required|trim|max_length[40]',
+            'rules' => 'trim|max_length[40]',
         ),
         array(
             'field' => 'username',

@@ -59,7 +59,7 @@ $lang['bf_weeks'] = 'Weeks';
 $lang['bf_days'] = 'Days';
 $lang['bf_username'] = 'Username';
 $lang['bf_password'] = 'Password';
-$lang['bf_password_confirm'] = 'Password (again)';
+$lang['bf_password_confirm'] = 'Confirm Password';
 $lang['bf_display_name'] = 'Display Name';
 
 //------------------------------------------------------------------------------

@@ -21,7 +21,7 @@
 //------------------------------------------------------------------------------
 
 $config['user_meta_fields'] =  array(
-
+/*
 	array(
 		'name'   => 'state',
 		'label'   => lang('user_meta_state'),
@@ -51,4 +51,5 @@ $config['user_meta_fields'] =  array(
 			),
 		),
 	),
+*/	
 );

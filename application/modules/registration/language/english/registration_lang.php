@@ -29,6 +29,7 @@ $lang['registration_edit_heading']    = 'Edit Registration';
 // Create/Edit Buttons
 $lang['registration_action_edit']   = 'Register for an Event';
 $lang['registration_action_create']   = 'Register for an Event';
+$lang['registration_action_create_another']   = 'Save and Register for Another Event';
 $lang['registration_action_add_team']   = 'Continue to Add Participant';
 
 // Activities

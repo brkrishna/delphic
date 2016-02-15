@@ -50,6 +50,8 @@ class Users extends Front_Controller
             Assets::add_module_js('users', 'password_strength.js');
             Assets::add_module_js('users', 'jquery.strength.js');
         }
+
+        $this->form_validation->set_error_delimiters("<div class='alert alert-danger'>", "</div>");
     }
 
     // -------------------------------------------------------------------------

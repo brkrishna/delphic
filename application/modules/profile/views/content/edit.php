@@ -83,17 +83,17 @@ $id = isset($profile->id) ? $profile->id : '';
         </div>
         <div class="form-group<?php echo form_error('contact_number') ? ' error' : ''; ?>">
             <?php echo form_label(lang('profile_field_contact_number') . lang('bf_form_label_required'), 'contact_number', array('class' => 'control-label')); ?>
-            <input tabindex='6' class="form-control" id='contact_number' type='text' required='required' name='contact_number' placeholder="only digits without spaces or special characters" maxlength='50' value="<?php echo set_value('contact_number', isset($profile->contact_number) ? $profile->contact_number : ''); ?>" />
+            <input tabindex='6' class="form-control" id='contact_number' type='text' required='required' name='contact_number' placeholder="919849112345" maxlength='50' value="<?php echo set_value('contact_number', isset($profile->contact_number) ? $profile->contact_number : ''); ?>" />
             <span class='help-inline'><?php echo form_error('contact_number'); ?></span>
         </div>
         <div class="form-group<?php echo form_error('alt_contact_number') ? ' error' : ''; ?>">
             <?php echo form_label(lang('profile_field_alt_contact_number'), 'alt_contact_number', array('class' => 'control-label')); ?>
-            <input tabindex='7' class="form-control" id='alt_contact_number' type='text' name='alt_contact_number' placeholder="only digits without spaces or special characters" maxlength='50' value="<?php echo set_value('alt_contact_number', isset($profile->alt_contact_number) ? $profile->alt_contact_number : ''); ?>" />
+            <input tabindex='7' class="form-control" id='alt_contact_number' type='text' name='alt_contact_number' placeholder="919849112345" maxlength='50' value="<?php echo set_value('alt_contact_number', isset($profile->alt_contact_number) ? $profile->alt_contact_number : ''); ?>" />
             <span class='help-inline'><?php echo form_error('alt_contact_number'); ?></span>
         </div>
         <div class="form-group<?php echo form_error('email_id') ? ' error' : ''; ?>">
             <?php echo form_label(lang('profile_field_email_id') . lang('bf_form_label_required'), 'email_id', array('class' => 'control-label')); ?>
-            <input tabindex='8' class="form-control" id='email_id' type='text' required='required' name='email_id' placeholder="myname@example.com" maxlength='255' value="<?php echo set_value('email_id', isset($profile->email_id) ? $profile->email_id : ''); ?> " />
+            <input tabindex='8' class="form-control" id='email_id' type='text' required='required' name='email_id' placeholder="myname@example.com" maxlength='255' value="<?php echo set_value('email_id', isset($profile->email_id) ? $profile->email_id : ''); ?>" />
             <span class='help-inline'><?php echo form_error('email_id'); ?></span>
         </div>
         <div class="form-group<?php echo form_error('address') ? ' error' : ''; ?>">

@@ -29,6 +29,7 @@ $lang['team_edit_heading']    = 'Edit Team';
 // Create/Edit Buttons
 $lang['team_action_edit']   = 'Save Team Member';
 $lang['team_action_create']   = 'Save Team Member';
+$lang['team_action_create_another']   = 'Save and Add Another Team Member';
 $lang['team_action_create_event']   = 'Continue to Register for an Event';
 
 // Activities

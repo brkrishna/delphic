@@ -2,7 +2,7 @@
     <hr />
     <footer class="footer">
         <div class="row">
-            <p>In case of any issues, please write to : <a href="mailto:rk@youthdelhpicgames.com">rk@youthdelphicgames.com</a>
+            <p>In case of any issues, please write to : <a href="mailto:register@youthdelhpicgames.com">register@youthdelphicgames.com</a>
             or call on <span class="glyphicon glyphicon-earphone"></span>&nbsp;<small>+91-9866 722 247</small></p>
         </div>
         <!--<div class="container">

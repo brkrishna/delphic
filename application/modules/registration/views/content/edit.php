@@ -123,6 +123,8 @@ $id = isset($registration->id) ? $registration->id : '';
     <div class="col-xs-12 col-sm-6 col-md-8 form-group">
         <input type='submit' name='save' class='btn btn-primary' value="<?php echo lang('registration_action_create'); ?>" />
         <?php echo lang('bf_or'); ?>
+        <input type='submit' name='saveanother' class='btn btn-primary' value="<?php echo lang('registration_action_create_another'); ?>" />
+        <?php echo lang('bf_or'); ?>
         <?php echo anchor(base_url() . 'index.php/admin/content/registration_team/create/' . $registration->id, lang('registration_action_add_team'), array('class'=>'btn btn-primary',)); ?> 
         <?php echo lang('bf_or'); ?>
         <?php echo anchor(SITE_AREA . '/content/registration', lang('registration_cancel'), 'class="btn btn-warning"'); ?>

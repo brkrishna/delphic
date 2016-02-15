@@ -106,7 +106,7 @@ class Content extends Admin_Controller
                 log_activity($this->auth->user_id(), lang('profile_act_create_record') . ': ' . $insert_id . ' : ' . $this->input->ip_address(), 'profile');
                 Template::set_message(lang('profile_create_success'), 'success');
 
-                redirect(SITE_AREA . '/content/profile/edit/' . $insert_id);
+                redirect(SITE_AREA . '/content/profile/edit/' . $insert_id);    
             }
 
             // Not validation error
@@ -130,7 +130,7 @@ class Content extends Admin_Controller
         if (empty($id)) {
             Template::set_message(lang('profile_invalid_id'), 'error');
 
-            redirect(SITE_AREA . '/content/profile');
+            redirect(SITE_AREA . '/content/profile/edit/' . $id);
         }
         
         if (isset($_POST['save'])) {

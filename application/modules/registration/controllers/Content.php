@@ -122,12 +122,16 @@ class Content extends Admin_Controller
     {
         $this->auth->restrict($this->permissionCreate);
         
-        if (isset($_POST['save'])) {
+        if (isset($_POST['save']) || isset($_POST['saveanother'])) {
             if ($insert_id = $this->save_registration()) {
                 log_activity($this->auth->user_id(), lang('registration_act_create_record') . ': ' . $insert_id . ' : ' . $this->input->ip_address(), 'registration');
                 Template::set_message(lang('registration_create_success'), 'success');
-
-                redirect(SITE_AREA . '/content/registration');
+                if(isset($_POST['save'])) {
+                    redirect(SITE_AREA . '/content/registration');    
+                }else if(isset($_POST['saveanother'])){
+                    redirect(SITE_AREA . '/content/registration/create');    
+                }   
+                
             }
 
             // Not validation error

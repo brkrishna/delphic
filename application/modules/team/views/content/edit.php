@@ -15,6 +15,58 @@ endif;
 $id = isset($team->id) ? $team->id : '';
 
 ?>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script  type="text/javascript">
+    $(document).ready(function(){
+
+        var mem_type = $("input[name='member_type']:checked").val();
+        if (mem_type == 'Indian Citizen'){
+            $("#passport_nbr").prop('readonly', true);
+            $("#place_of_issue").prop('readonly', true);
+            $("#date_of_issue").prop('readonly', true);
+            $("#date_of_expiry").prop('readonly', true);
+
+            $("#attachment_type").prop('readonly', false);
+            $("#attachment").prop('readonly', false);
+
+        }else{
+            $("#passport_nbr").prop('readonly', false);
+            $("#place_of_issue").prop('readonly', false);
+            $("#date_of_issue").prop('readonly', false);
+            $("#date_of_expiry").prop('readonly', false);
+
+            $("#attachment_type").prop('readonly', true);
+            $("#attachment").prop('readonly', true);
+
+        }
+
+        $("input[name='member_type']:radio").change(function(){
+            var mem_type = $(this).val();
+            if (mem_type == 'Indian Citizen'){
+                $("#passport_nbr").prop('readonly', true);
+                $("#place_of_issue").prop('readonly', true);
+                $("#date_of_issue").prop('readonly', true);
+                $("#date_of_expiry").prop('readonly', true);
+
+                $("#attachment_type").val('-1');
+                $("#attachment_type").prop('disabled', false);
+                $("#attachment").prop('readonly', false);
+
+            }else{
+                $("#passport_nbr").prop('readonly', false);
+                $("#place_of_issue").prop('readonly', false);
+                $("#date_of_issue").prop('readonly', false);
+                $("#date_of_expiry").prop('readonly', false);
+
+                $("#attachment_type option:contains('Other')").attr('selected', 'selected');
+                $("#attachment_type").prop('disabled', true);
+                $("#attachment").prop('readonly', true);
+
+            }
+        });
+    });
+</script>
+
 <?php echo form_open_multipart($this->uri->uri_string(), 'class="form-horizontal"'); ?>
 <div class="row">
     <hr/>
@@ -71,12 +123,12 @@ $id = isset($team->id) ? $team->id : '';
         </div>
         <div class="form-group<?php echo form_error('contact_nbr') ? ' error' : ''; ?>">
             <?php echo form_label(lang('team_field_contact_nbr') . lang('bf_form_label_required'), 'contact_nbr', array('class' => 'control-label')); ?>
-            <input class='form-control' tabindex='6' id='contact_nbr' required type='text' name='contact_nbr' placeholder="only digits without spaces or special characters" maxlength='255' value="<?php echo set_value('contact_nbr', isset($team->contact_nbr) ? $team->contact_nbr : ''); ?>" />
+            <input class='form-control' tabindex='6' id='contact_nbr' required type='text' name='contact_nbr' placeholder="919849112345" maxlength='255' value="<?php echo set_value('contact_nbr', isset($team->contact_nbr) ? $team->contact_nbr : ''); ?>" />
             <span class='help-inline'><?php echo form_error('contact_nbr'); ?></span>
         </div>
         <div class="form-group<?php echo form_error('alt_contact_nbr') ? ' error' : ''; ?>">
             <?php echo form_label(lang('team_field_alt_contact_nbr'), 'alt_contact_nbr', array('class' => 'control-label')); ?>
-            <input class='form-control' tabindex='7' id='alt_contact_nbr' type='text' name='alt_contact_nbr' placeholder="only digits without spaces or special characters" maxlength='50' value="<?php echo set_value('alt_contact_nbr', isset($team->alt_contact_nbr) ? $team->alt_contact_nbr : ''); ?>" />
+            <input class='form-control' tabindex='7' id='alt_contact_nbr' type='text' name='alt_contact_nbr' placeholder="919849112345" maxlength='50' value="<?php echo set_value('alt_contact_nbr', isset($team->alt_contact_nbr) ? $team->alt_contact_nbr : ''); ?>" />
             <span class='help-inline'><?php echo form_error('alt_contact_nbr'); ?></span>
         </div>
         <div class="form-group<?php echo form_error('email') ? ' error' : ''; ?>">
@@ -112,6 +164,8 @@ $id = isset($team->id) ? $team->id : '';
             <span class='help-inline'><?php echo form_error('date_of_expiry'); ?></span>
         </div>
         <hr/>
+        <h5>Identify Proof details&nbsp;<small>Required for Indian Citizens</small></h5>
+        <hr/>    
         <div class="form-group">
         <?php // Change the values in this array to populate your dropdown as required
             
@@ -133,6 +187,7 @@ $id = isset($team->id) ? $team->id : '';
             <?php endif; ?>
             <input class="btn btn-primary" tabindex='15' id='attachment' type='file' name='attachment' maxlength='4000' value="<?php echo set_value('attachment', isset($team->attachment) ? $team->attachment : ''); ?>" />
             <span class='help-inline'><?php echo form_error('attachment'); ?></span>
+            <span class='help-inline'>File formats suppported : PDF, JPG, JPEG, GIF, PNG</span>
         </div>
     </div>
     <div class="col-xs-12 col-sm-10 col-md-8">
@@ -159,7 +214,7 @@ $id = isset($team->id) ? $team->id : '';
     </div>
 </div>
 <div class="row">
-    <div class="col-xs-12 col-sm-10 col-md-8">
+    <div class="col-xs-12 col-sm-10 col-md-10">
         <div class="form-group<?php echo form_error('profile') ? ' error' : ''; ?>">
             <?php echo form_label(lang('team_field_profile'), 'profile', array('class' => 'control-label')); ?>
             <?php echo form_textarea(array('class'=>'form-control', 'tabindex'=>'16', 'name' => 'profile', 'id' => 'profile', 'rows' => '5', 'cols' => '80', 'value' => set_value('profile', isset($team->profile) ? $team->profile : ''))); ?>
@@ -168,11 +223,13 @@ $id = isset($team->id) ? $team->id : '';
         <div class="form-group">
             <input tabindex='17' type='submit' name='save' class='btn btn-primary' value="<?php echo lang('team_action_create'); ?>" />
             <?php echo lang('bf_or'); ?>
+            <input tabindex='18' type='submit' name='saveanother' class='btn btn-primary' value="<?php echo lang('team_action_create_another'); ?>" />
+            <?php echo lang('bf_or'); ?>
             <?php if(isset($team->id)) : ?>
-            <?php echo anchor(base_url() . 'index.php/admin/content/registration/create', lang('team_action_create_event'), array('class'=>'btn btn-primary', 'tabindex'=>'18')); ?> 
+            <?php echo anchor(base_url() . 'index.php/admin/content/registration/create', lang('team_action_create_event'), array('class'=>'btn btn-primary', 'tabindex'=>'19')); ?> 
             <?php echo lang('bf_or'); ?>
             <?php endif; ?>
-            <?php echo anchor(SITE_AREA . '/content/team', lang('team_cancel'), array('class'=>'btn btn-warning', 'tabindex'=>'19')); ?>
+            <?php echo anchor(SITE_AREA . '/content/team', lang('team_cancel'), array('class'=>'btn btn-warning', 'tabindex'=>'20')); ?>
         </div>            
     </div>
 </div>

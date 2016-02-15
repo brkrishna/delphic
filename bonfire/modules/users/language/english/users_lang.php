@@ -112,6 +112,7 @@ $lang['us_last_login']				= 'Last Login';
 
 
 $lang['us_account_created_success'] = 'Your account has been created. Please log in.';
+$lang['us_account_created_failure'] = 'There was a problem creating the team: ';
 
 $lang['us_invalid_user_id']         = 'Invalid user id.';
 $lang['us_invalid_email']           = 'Cannot find that email in our records.';

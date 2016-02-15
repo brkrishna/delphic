@@ -97,12 +97,17 @@ class Content extends Admin_Controller
     {
         $this->auth->restrict($this->permissionCreate);
         
-        if (isset($_POST['save'])) {
+        if (isset($_POST['save']) || isset($_POST['saveanother'])) {
             if ($insert_id = $this->save_team()) {
                 log_activity($this->auth->user_id(), lang('team_act_create_record') . ': ' . $insert_id . ' : ' . $this->input->ip_address(), 'team');
                 Template::set_message(lang('team_create_success'), 'success');
 
-                //redirect(SITE_AREA . '/content/team');
+                if(isset($_POST['save'])){
+                    redirect(SITE_AREA . '/content/team/edit/' . $insert_id);    
+                }else if(isset($_POST['saveanother'])){
+                    redirect(SITE_AREA . '/content/team/create');
+                }
+                
             }
 
             // Not validation error
@@ -135,7 +140,7 @@ class Content extends Admin_Controller
             if ($this->save_team('update', $id)) {
                 log_activity($this->auth->user_id(), lang('team_act_edit_record') . ': ' . $id . ' : ' . $this->input->ip_address(), 'team');
                 Template::set_message(lang('team_edit_success'), 'success');
-                redirect(SITE_AREA . '/content/team');
+                redirect(SITE_AREA . '/content/team/edit/' . $id);
             }
 
             // Not validation error
@@ -222,10 +227,16 @@ class Content extends Admin_Controller
         $this->form_validation->set_rules($this->team_model->get_validation_rules());
         $this->form_validation->set_rules('contact_nbr', 'Contact Number', 'callback_phone_regex');
         $this->form_validation->set_rules('dob', 'Date of Birth', 'callback_is_birthdate');
-        $this->form_validation->set_rules('date_of_issue', 'Date of Issue', 'callback_is_valid_dt_of_issue');
+        if ($this->input->post('date_of_issue') != ''){
+            $this->form_validation->set_rules('date_of_issue', 'Date of Issue', 'callback_is_valid_dt_of_issue');
+        }
         if ($this->input->post('alt_contact_nbr') != ''){
             $this->form_validation->set_rules('alt_contact_nbr', 'Alternate Contact Number', 'callback_phone_regex');
         }
+        if ($this->input->post('member_type') == 'Indian Citizen'){
+            $this->form_validation->set_rules('attachment', 'Attachment', 'required|trim|max_length[4000]');
+        }
+
 
         if ($this->form_validation->run() === false) {
             return false;
@@ -240,7 +251,7 @@ class Content extends Admin_Controller
 			// make sure we only pass in the fields we want
 			$file_path = $this->config->item('upload_dir');
 			$config['upload_path']		= $file_path;
-			$config['allowed_types']	= 'pdf|jpg|gif|png';
+			$config['allowed_types']	= 'pdf|jpeg|jpg|gif|png';
 
 			$this->load->library('upload', $config);
 			if ( ! $this->upload->do_upload('attachment'))
