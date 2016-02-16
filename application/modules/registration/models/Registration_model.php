@@ -88,7 +88,7 @@ class Registration_model extends BF_Model
     {
         if ($profile_id != NULL)
         {
-            $query = $this->db->get_where($this->table_name, array('profile_id'=>$profile_id));
+            $query = $this->db->get_where($this->table_name, array('profile_id'=>$profile_id, 'deleted'=>0));
         }
         else{
             $query = $this->db->get($this->table_name);
@@ -136,6 +136,7 @@ class Registration_model extends BF_Model
                 ->join('registration_team e', 'a.id = e.registration', 'left')
                 ->join('registration_documents f', 'a.id = f.registration', 'left')
                 ->where('a.profile_id', $profile_id)
+                ->where('a.deleted', 0)
                 ->group_by('a.id');
             $query = $this->db->get();    
         }
@@ -160,7 +161,8 @@ class Registration_model extends BF_Model
                 ->join('bf_performance d', 'a.performance = d.id')
                 ->join('registration_team e', 'a.id = e.registration', 'left')
                 ->join('team g', 'e.team = g.id', 'left')
-                ->where('a.profile_id', $profile_id);
+                ->where('a.profile_id', $profile_id)
+                ->where('a.deleted', 0);
             $query = $this->db->get();    
         }
         

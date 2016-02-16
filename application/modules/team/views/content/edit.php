@@ -228,6 +228,7 @@ $id = isset($team->id) ? $team->id : '';
             <?php if(isset($team->id)) : ?>
             <?php echo anchor(base_url() . 'index.php/admin/content/registration/create', lang('team_action_create_event'), array('class'=>'btn btn-primary', 'tabindex'=>'19')); ?> 
             <?php echo lang('bf_or'); ?>
+            <br/><br/>
             <?php endif; ?>
             <?php echo anchor(SITE_AREA . '/content/team', lang('team_cancel'), array('class'=>'btn btn-warning', 'tabindex'=>'20')); ?>
         </div>            

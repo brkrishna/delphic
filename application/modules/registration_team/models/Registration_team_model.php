@@ -115,7 +115,5 @@ class Registration_team_model extends BF_Model
         } else {
             return 0;
         }
-    
     }    
-
 }

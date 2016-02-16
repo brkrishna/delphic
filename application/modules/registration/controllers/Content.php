@@ -127,7 +127,7 @@ class Content extends Admin_Controller
                 log_activity($this->auth->user_id(), lang('registration_act_create_record') . ': ' . $insert_id . ' : ' . $this->input->ip_address(), 'registration');
                 Template::set_message(lang('registration_create_success'), 'success');
                 if(isset($_POST['save'])) {
-                    redirect(SITE_AREA . '/content/registration');    
+                    redirect(SITE_AREA . '/content/registration/edit/' . $insert_id);    
                 }else if(isset($_POST['saveanother'])){
                     redirect(SITE_AREA . '/content/registration/create');    
                 }   
@@ -141,7 +141,7 @@ class Content extends Admin_Controller
         }
 
         Template::set('toolbar_title', lang('registration_action_create'));
-
+        Template::set_view('content/edit');    
         Template::render();
     }
     /**
@@ -155,7 +155,7 @@ class Content extends Admin_Controller
         if (empty($id)) {
             Template::set_message(lang('registration_invalid_id'), 'error');
 
-            redirect(SITE_AREA . '/content/registration');
+            redirect(SITE_AREA . '/content/registration/edit/' . $id);
         }
         
         if (isset($_POST['save'])) {
@@ -186,9 +186,11 @@ class Content extends Admin_Controller
             Template::set_message(lang('registration_delete_failure') . $this->registration_model->error, 'error');
         }
         
+        //$this->lang->load('registration_team/registration_team');
         Template::set('registration', $this->registration_model->find($id));
 
         Template::set('toolbar_title', lang('registration_edit_heading'));
+        //Template::set_view('content/register');
         Template::render();
     }
 
@@ -258,7 +260,53 @@ class Content extends Admin_Controller
         Template::set('toolbar_title', lang('registration_manage'));
 
         Template::render();
+    }
+
+    public function register(){
+
+        $id = $this->uri->segment(5);
+        if (isset($_POST['save'])) {
+            $this->auth->restrict($this->permissionEdit);
+
+            if ($this->save_registration('update', $id)) {
+                log_activity($this->auth->user_id(), lang('registration_act_edit_record') . ': ' . $id . ' : ' . $this->input->ip_address(), 'registration');
+                Template::set_message(lang('registration_edit_success'), 'success');
+                redirect(SITE_AREA . '/content/registration');
+            }
+
+            // Not validation error
+            if ( ! empty($this->registration_model->error)) {
+                Template::set_message(lang('registration_edit_failure') . $this->registration_model->error, 'error');
+            }
+        }
         
+        elseif (isset($_POST['delete'])) {
+            $this->auth->restrict($this->permissionDelete);
+
+            if ($this->registration_model->delete($id)) {
+                log_activity($this->auth->user_id(), lang('registration_act_delete_record') . ': ' . $id . ' : ' . $this->input->ip_address(), 'registration');
+                Template::set_message(lang('registration_delete_success'), 'success');
+
+                redirect(SITE_AREA . '/content/registration');
+            }
+
+            Template::set_message(lang('registration_delete_failure') . $this->registration_model->error, 'error');
+        }
         
+        if(!empty($id)){
+            Template::set('registration', $this->registration_model->find($id));    
+        }
+        
+        $this->load->model(array('registration_team/registration_team_model'));
+        if (!empty($registration_nbr)){
+            $profile_team = $this->registration_team_model->find_regn_team($registration_nbr);    
+        }else{
+            $profile_team = NULL;
+        }
+        $this->lang->load('registration_team/registration_team');
+        Template::set('profile_team', $profile_team);
+
+        Template::set('toolbar_title', lang('registration_edit_heading'));
+        Template::render();
     }
 }

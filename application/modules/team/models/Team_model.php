@@ -148,7 +148,7 @@ class Team_model extends BF_Model
     {
         if ($profile_id != NULL)
         {
-            $query = $this->db->get_where($this->table_name, array('profile_id'=>$profile_id));
+            $query = $this->db->get_where($this->table_name, array('profile_id'=>$profile_id, 'deleted'=>0));
         }
         else{
             $query = $this->db->get($this->table_name);
