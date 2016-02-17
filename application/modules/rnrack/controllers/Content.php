@@ -98,7 +98,49 @@ class Content extends Admin_Controller
                 log_activity($this->auth->user_id(), lang('rnrack_act_create_record') . ': ' . $insert_id . ' : ' . $this->input->ip_address(), 'rnrack');
                 Template::set_message(lang('rnrack_create_success'), 'success');
 
-                redirect(SITE_AREA . '/content/rnrack');
+                $ch = curl_init(); 
+                curl_setopt($ch, CURLOPT_URL, "https://paynetzuat.atomtech.in/paynetz/epi/fts?login=160&pass=Test@123&ttype=NBFundTransfer&prodid=NSE&amt=77&txncurr=USD&txnscamt=0&clientcode=007&txnid=123456789&date=16/02/2015%2018:00:00&custacc=1234567890");
+
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
+                $output = curl_exec($ch); 
+                curl_close($ch);
+
+                $p = xml_parser_create();
+                xml_parse_into_struct($p, $output, $vals, $index);
+                xml_parser_free($p);
+                $tempTxnId = $vals[5]['value'];
+                $token = $vals[6]['value'];
+
+                //print_r($vals);
+                /*
+                echo("<br/>nextline<br/>");
+                print_r($tempTxnId);
+                echo("<br/>nextline<br/>");
+                print_r($token);
+
+                print_r($url);
+                */
+                $url =  "https://paynetzuat.atomtech.in/paynetz/epi/fts?ttype=NBFundTransfer&tempTxnId=" . $tempTxnId . "&token=" . $token . "&txnStage=1";
+                redirect($url, 'refresh');
+                /*
+                $ch = curl_init(); 
+                curl_setopt($ch, CURLOPT_URL, $url);
+
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
+                curl_setopt($ch, CURLOPT_HEADER, true);
+                curl_setopt($ch, CURLOPT_FOLLOWLOCATION, false);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+
+                $output = curl_exec($ch); 
+                */
+                //curl_close($ch);
+
+                //$p = xml_parser_create();
+                //xml_parse_into_struct($p, $output, $vals, $index);
+                //xml_parser_free($p);
+
+                
+                //redirect(SITE_AREA . '/content/rnrack');
             }
 
             // Not validation error

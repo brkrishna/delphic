@@ -97,12 +97,19 @@ class Content extends Admin_Controller
     public function create($registration_nbr = 0)
     {
         $this->auth->restrict($this->permissionCreate);
+
+        $id = $this->uri->segment(5);
+
+        var_dump($id);
+        //var_dump($_POST['registration']);
+        //exit;
+
         if($registration_nbr < 0){
             Template::set_message(lang('registration_team_create_failure') . $this->registration_team_model->error, 'error');
         }
         
         if (isset($_POST['save'])) {
-            $this->registration_team_model->where(array('registration'=>$_POST['registration'], 'team'=>$_POST['team']));
+            $this->registration_team_model->where(array('registration'=>$_POST['registration'], 'team'=>$_POST['team'], 'deleted'=>'0'));
             $result = $this->db->get('registration_team');
             if ($result->num_rows() > 0){
                 Template::set_message('Duplicate. This team member is already added to the event', 'error');
@@ -119,6 +126,18 @@ class Content extends Admin_Controller
                     Template::set_message(lang('registration_team_create_failure') . $this->registration_team_model->error, 'error');
                 }
             }
+        }elseif (isset($_POST['delete'])) {
+            $this->auth->restrict($this->permissionDelete);
+
+            if ($this->registration_team_model->delete($id)) {
+                echo('deleted' . $id);
+                log_activity($this->auth->user_id(), lang('registration_team_act_delete_record') . ': ' . $id . ' : ' . $this->input->ip_address(), 'registration_team');
+                Template::set_message(lang('registration_team_delete_success'), 'success');
+
+                redirect(SITE_AREA . '/content/registration_team/edit/' . $_POST['registration']);;
+            }
+
+            Template::set_message(lang('registration_team_delete_failure') . $this->registration_team_model->error, 'error');
         }
         
         $this->load->model('registration/registration_model');
@@ -160,6 +179,8 @@ class Content extends Admin_Controller
         }
         
         elseif (isset($_POST['delete'])) {
+            var_dump( $this->uri->segment(5));
+            exit;
             $this->auth->restrict($this->permissionDelete);
 
             if ($this->registration_team_model->delete($id)) {
@@ -167,7 +188,7 @@ class Content extends Admin_Controller
                 log_activity($this->auth->user_id(), lang('registration_team_act_delete_record') . ': ' . $id . ' : ' . $this->input->ip_address(), 'registration_team');
                 Template::set_message(lang('registration_team_delete_success'), 'success');
 
-                redirect(SITE_AREA . '/content/registration_team/create/' . $_POST['registration']);;
+                redirect(SITE_AREA . '/content/registration_team/edit/' . $_POST['registration']);;
             }
 
             Template::set_message(lang('registration_team_delete_failure') . $this->registration_team_model->error, 'error');

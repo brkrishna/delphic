@@ -133,8 +133,8 @@ class Registration_model extends BF_Model
                 ->join('bf_category b', 'a.category = b.id')
                 ->join('bf_style c', 'a.style = c.id')
                 ->join('bf_performance d', 'a.performance = d.id')
-                ->join('registration_team e', 'a.id = e.registration', 'left')
-                ->join('registration_documents f', 'a.id = f.registration', 'left')
+                ->join('registration_team e', 'a.id = e.registration and e.deleted = 0', 'left')
+                ->join('registration_documents f', 'a.id = f.registration and f.deleted = 0', 'left')
                 ->where('a.profile_id', $profile_id)
                 ->where('a.deleted', 0)
                 ->group_by('a.id');

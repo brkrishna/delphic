@@ -86,7 +86,8 @@ class Registration_team_model extends BF_Model
             $query = $this->select('a.id, a.team team_id, b.name, a.comments')
                 ->from('bf_registration_team a')
                 ->join('bf_team b', 'a.team = b.id')
-                ->where('a.registration', $regn_id);
+                ->where('a.registration', $regn_id)
+                ->where('a.deleted',0);
             $query = $this->db->get();    
         }
         
@@ -105,7 +106,8 @@ class Registration_team_model extends BF_Model
         }else{
             $query = $this->select('a.id, a.team team_id, b.name, a.comments')
                 ->from('bf_registration_team a')
-                ->join('bf_team b', 'a.team = b.id');	
+                ->join('bf_team b', 'a.team = b.id')
+                ->where('a.deleted',0);
             $query = $this->db->get();    
         }
         

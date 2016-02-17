@@ -44,17 +44,25 @@ $id = isset($rnrack->id) ? $rnrack->id : '';
             (Games) is conditional on you entering and abiding to the Rules and Regulations set forth
             therein and observing its terms and conditions as follows:.
             </p>
+            <ul>
+            <li>
             1. Participation
             I acknowledge that my participation as an individual and/or group (being a representative of
             the group) as a participant of the V Youth Delphic Games is an honour and a privilege and I
             acknowledge on behalf of myself and my team members that my or my teams participation is
             subject to the compliance with the terms of these Rules and Regulations.
+            </li>
+            <li>
             2. Period
+            <li><ul><li>
             a. These Rules and Regulations shall commence from the date my or my teams participation is
             confirmed by the concerned authority of the ADC as a participant of the Games, the same being
             informed by way of email.
+            </li>
+            <li>
             b. These Rules and Regulations shall conclude at midnight on the day after the closing ceremony
-            of the Games, or on such later date as I am formally informed of being discharged.
+            of the Games, or on such later date as I am formally informed of being discharged.</li></ul>
+            <li>
             3. My obligations
             a. As a participant of the Games, I shall as an individual and/or as a group (being the
             representative of the group) shall:
