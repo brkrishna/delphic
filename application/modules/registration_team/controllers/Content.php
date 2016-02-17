@@ -100,7 +100,6 @@ class Content extends Admin_Controller
 
         $id = $this->uri->segment(5);
 
-        var_dump($id);
         //var_dump($_POST['registration']);
         //exit;
 
