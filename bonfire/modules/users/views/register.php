@@ -27,7 +27,7 @@ if (validation_errors()) :
     <hr/><h3>Sign up</h3>
     <div class="col-xs-12 col-sm-6 col-md-6">
         <div class="form-group<?php echo form_error('email') ? $errorClass : ''; ?>">
-            <label class="control-label required" for="email"><?php echo lang('bf_email'); ?></label>
+            <label class="control-label required" for="email"><?php echo lang('bf_email') . lang('bf_form_label_required') ; ?></label>
             <input type="text" id="email" name="email" class="form-control" value="<?php echo set_value('email', isset($user) ? $user->email : ''); ?>" />
             <span class="help-inline"><?php echo form_error('email'); ?></span>
         </div>
@@ -48,20 +48,19 @@ if (validation_errors()) :
         </div>
         <?php endif; ?>
         <div class="form-group<?php echo form_error('password') ? $errorClass : ''; ?>">
-            <label class="control-label" for="password"><?php echo lang('bf_password'); ?></label>
+            <label class="control-label" for="password"><?php echo lang('bf_password') . lang('bf_form_label_required') ; ?></label>
             <div class="controls">
                 <input class="form-control" type="password" id="password" name="password" value="" />
                 <span class="help-inline"><?php echo form_error('password'); ?></span>
             </div>
         </div>
         <div class="form-group<?php echo form_error('pass_confirm') ? $errorClass : ''; ?>">
-            <label class="control-label" for="pass_confirm">Confirm Password</label>
+            <label class="control-label" for="pass_confirm">Confirm Password*</label>
             <div class="controls">
                 <input class="form-control" type="password" id="pass_confirm" name="pass_confirm" value="" />
                 <span class="help-inline"><?php echo form_error('pass_confirm'); ?></span>
             </div>
         </div>
-        <h3>Personal Details</h3>
         <div class="form-group">
             <?php
             // Allow modules to render custom fields. No payload is passed

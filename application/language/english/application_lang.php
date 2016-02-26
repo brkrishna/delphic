@@ -299,21 +299,21 @@ $lang['log_intro'] = 'These are your log messages';
 //------------------------------------------------------------------------------
 $lang['user_meta_street_name'] = 'Street Name';
 $lang['user_meta_type'] = 'Type';
-$lang['user_meta_country'] = 'Country';
+$lang['user_meta_country'] = 'Country*';
 $lang['user_meta_state'] = 'State';
-$lang['user_meta_first_name'] = 'First Name';
+$lang['user_meta_first_name'] = 'First Name*';
 $lang['user_meta_middle_name'] = 'Middle Name';
-$lang['user_meta_last_name'] = 'Last Name';
-$lang['user_meta_mobile'] = 'Mobile';
-$lang['user_meta_address'] = 'Address';
-$lang['user_meta_city'] = 'City';
-$lang['user_meta_zip'] = 'Zip / Post Code';
-$lang['user_meta_gender'] = 'Gender';
-$lang['user_meta_dob'] = 'Date of Birth';
+$lang['user_meta_last_name'] = 'Last Name*';
+$lang['user_meta_mobile'] = 'Mobile*';
+$lang['user_meta_address'] = 'Address*';
+$lang['user_meta_city'] = 'City*';
+$lang['user_meta_zip'] = 'Zip / Post Code*';
+$lang['user_meta_gender'] = 'Gender*';
+$lang['user_meta_dob'] = 'Date of Birth*';
 $lang['user_meta_participate'] = 'You want to participate in the YDG ‘16 as a:';
 $lang['user_meta_mode'] = 'You signing up as a:';
 $lang['user_meta_team'] = 'You are an:';
-$lang['user_meta_categories'] = 'Preferred Categories:';
+$lang['user_meta_categories'] = 'Preferred Category*';
 
 //------------------------------------------------------------------------------
 // Migrations lib
