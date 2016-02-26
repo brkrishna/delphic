@@ -233,7 +233,7 @@ $config['user_meta_fields'] =  array(
 			),
 			'options' => array(
 				'Participant' => 'Participant', 
-				'Representative'=>'Representative', 
+				'Representative'=>'Representative of a Participant', 
 			),			
 		),
 	),
