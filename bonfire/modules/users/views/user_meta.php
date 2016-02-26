@@ -10,6 +10,7 @@ if (! empty($meta_fields)) :
     $userIsAdmin     = isset($current_user) ? ($current_user->role_id == 1) : false;
 
     foreach ($meta_fields as $field) :
+        echo ("<br/>");
         $adminField = isset($field['admin_only']) ? $field['admin_only'] : false;
         // If this is an admin field and the user is not an admin, skip it.
         if ($adminField && ! $userIsAdmin) {
@@ -31,6 +32,9 @@ if (! empty($meta_fields)) :
                 set_value($field['name'], isset($user->{$field['name']}) ? $user->{$field['name']} : ''),
                 $field['label']
             );
+        elseif ($field['form_detail']['type'] == 'anchor') :
+            echo anchor($field['form_detail']['href'], $field['form_detail']['caption'], $field['form_detail']['settings']);
+            echo("<br/>");
         elseif ($field['form_detail']['type'] == 'checkbox') :
 ?>
         <div class="form-group<?php echo form_error($field['name']) ? ' error' : ''; ?>">
