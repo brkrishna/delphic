@@ -82,7 +82,7 @@ class Event_model extends BF_Model
 	public function get_category_styles($category = NULL)
 	{   
 	    if($category != NULL) {
-	        $query = $this->db->select('style, desc')->from($this->table_name)->join('style', 'event.style = style.id')->where(array('event.deleted'=>0, 'category'=>$category))->get();
+	        $query = $this->db->select('style, desc')->from($this->table_name)->join('style', 'event.style = style.id')->where(array('event.deleted'=>0, 'category'=>$category))->order_by('event.sort_order', 'asc')->get();
 	        
 	    }else{
 	        return '';
@@ -105,7 +105,7 @@ class Event_model extends BF_Model
 	public function get_style_performances($style = NULL)
 	{   
 	    if($style != NULL) {
-	        $query = $this->db->select('performance, desc')->from($this->table_name)->join('performance', 'event.performance = performance.id')->where(array('event.deleted'=>0, 'style'=>$style))->get();
+	        $query = $this->db->select('performance, desc')->from($this->table_name)->join('performance', 'event.performance = performance.id')->where(array('event.deleted'=>0, 'style'=>$style))->order_by('event.sort_order', 'asc')->get();
 	        
 	    }else{
 	        return '';
