@@ -281,5 +281,37 @@ $config['user_meta_fields'] =  array(
 			),			
 		),
 	),
+	array(
+		'name' => 'helplink',
+		'label' => lang('user_meta_categories_help'),
+		'rules' => '',
+        'admin_only'    => false,
+		'form_detail' => array(
+			'type' => 'anchor',
+			'href' => 'http://www.youthdelphicgames.com/art-categories.php',
+			'caption'=>'Click here to review Categories',
+			'settings' => array(
+				'title' => 'Art Categories',
+				'target' => '_new',
+			),
+		),
+	),
+	array(
+		'name'   => 'comments',
+		'label'   => lang('user_meta_comments'),
+		'rules'   => 'required|trim|max_length[1000]',
+        'admin_only'    => false,
+		'form_detail' => array(
+			'type' => 'textarea',
+			'settings' => array(
+				'name'		=> 'comments',
+				'id'		=> 'comments',
+				'maxlength'	=> '1000',
+				'rows'      => '8',
+				'class'		=> 'form-control',
+				'placeholder' => 'Remarks/Comments...'
+			),			
+		),
+	),
 	
 );
