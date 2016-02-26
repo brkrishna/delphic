@@ -98,7 +98,7 @@ $lang['us_forgot_your_password']	= 'Forgot Your Password?';
 $lang['us_let_me_in']				= 'Sign In';
 
 $lang['us_password_mins']			= 'Minimum 8 characters.';
-$lang['us_register']				= 'Register';
+$lang['us_register']				= 'Sign up';
 $lang['us_already_registered']		= 'Already registered?';
 
 $lang['us_action_save']				= 'Save User';

@@ -33,11 +33,8 @@ if (! empty($meta_fields)) :
             );
         elseif ($field['form_detail']['type'] == 'checkbox') :
 ?>
-<div class="row-fluid">
-    <div class="col-md-6">
-        <div class="control-group<?php echo form_error($field['name']) ? ' error' : ''; ?>">
+        <div class="form-group<?php echo form_error($field['name']) ? ' error' : ''; ?>">
             <label class="control-label" for="<?php echo $field['name']; ?>"><?php echo $field['label']; ?></label>
-            <div class="controls">
                 <?php
                 echo form_checkbox(
                     $field['form_detail']['settings'],
@@ -48,7 +45,6 @@ if (! empty($meta_fields)) :
                     )
                 );
                 ?>
-            </div>
         </div>
         <?php
                 elseif ($field['form_detail']['type'] == 'state_select'
@@ -57,9 +53,8 @@ if (! empty($meta_fields)) :
                     $stateFieldId = $field['name'];
                     $stateValue = isset($user->{$field['name']}) ? $user->{$field['name']} : $defaultState;
         ?>
-        <div class="control-group<?php echo form_error($field['name']) ? ' error' : ''; ?>">
+        <div class="form-group<?php echo form_error($field['name']) ? ' error' : ''; ?>">
             <label class="control-label" for="<?php echo $field['name']; ?>"><?php echo lang('user_meta_state'); ?></label>
-            <div class="controls">
                 <?php
                 echo state_select(
                     set_value($field['name'], $stateValue),
@@ -69,7 +64,6 @@ if (! empty($meta_fields)) :
                     'form-control chzn-select'
                 );
                 ?>
-            </div>
         </div>
         <?php
                 elseif ($field['form_detail']['type'] == 'country_select'
@@ -80,7 +74,6 @@ if (! empty($meta_fields)) :
         ?>
         <div class="control-group<?php echo form_error($field['name']) ? ' error' : ''; ?>">
             <label class="control-label" for="<?php echo $field['name']; ?>"><?php echo lang('user_meta_country'); ?></label>
-            <div class="controls">
                 <?php
                 echo country_select(
                     set_value($field['name'], isset($user->{$field['name']}) ? $user->{$field['name']} : $defaultCountry),
@@ -89,7 +82,6 @@ if (! empty($meta_fields)) :
                     'form-control chzn-select'
                 );
                 ?>
-            </div>
         </div>
         <?php
                 else :

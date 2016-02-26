@@ -36,6 +36,9 @@ hr{
     height:1px;
     background-color:#ee4580;
 }
+.form-control{
+	width:90%;
+}
 .btn {
 	border-radius: 0;
 }

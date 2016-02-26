@@ -24,7 +24,7 @@ if (validation_errors()) :
 <?php echo form_open(site_url(REGISTER_URL), array('class' => "form-horizontal", 'autocomplete' => 'off')); ?>
 
 <div class="row">
-    <hr/><h4>Register</h4>
+    <hr/><h3>Sign up</h3>
     <div class="col-xs-12 col-sm-6 col-md-6">
         <div class="form-group<?php echo form_error('email') ? $errorClass : ''; ?>">
             <label class="control-label required" for="email"><?php echo lang('bf_email'); ?></label>
@@ -61,15 +61,20 @@ if (validation_errors()) :
                 <span class="help-inline"><?php echo form_error('pass_confirm'); ?></span>
             </div>
         </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-xs-12 col-sm-10 col-md-8">
+        <h3>Personal Details</h3>
+        <div class="form-group">
+            <?php
+            // Allow modules to render custom fields. No payload is passed
+            // since the user has not been created, yet.
+            Events::trigger('render_user_form');
+            ?>
+            <!-- Start of User Meta -->
+            <?php $this->load->view('users/user_meta', array('frontend_only' => true)); ?>
+            <!-- End of User Meta -->
+        </div>
         <div class="form-group">
             <input tabindex='6' type='submit' name='register' class='btn btn-primary' value="<?php echo lang('us_register'); ?>" />
         </div>            
     </div>
-</div>
-
 
 <?php echo form_close(); ?>
