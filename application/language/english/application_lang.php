@@ -315,6 +315,7 @@ $lang['user_meta_participate'] = 'You want to participate in the YDG ‘16 as a:
 $lang['user_meta_mode'] = 'You are signing up as a:';
 $lang['user_meta_team'] = 'You are an:';
 $lang['user_meta_categories'] = 'Preferred Category*';
+$lang['user_meta_comments'] = 'Comments / Remarks';
 
 //------------------------------------------------------------------------------
 // Migrations lib
