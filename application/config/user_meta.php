@@ -199,6 +199,25 @@ $config['user_meta_fields'] =  array(
 		),
 	),
 	array(
+		'name'   => 'mode',
+		'label'   => lang('user_meta_mode'),
+		'rules'   => 'required|trim|max_length[50]',
+        'admin_only'    => false,
+		'form_detail' => array(
+			'type' => 'dropdown',
+			'settings' => array(
+				'name'		=> 'mode',
+				'id'		=> 'mode',
+				'maxlength'	=> '50',
+				'class'		=> 'form-control'
+			),
+			'options' => array(
+				'Participant' => 'Participant', 
+				'Representative'=>'Representative of a Participant', 
+			),			
+		),
+	),
+	array(
 		'name'   => 'participate',
 		'label'   => lang('user_meta_participate'),
 		'rules'   => 'required|trim|max_length[50]',
@@ -215,25 +234,6 @@ $config['user_meta_fields'] =  array(
 				'Competitor' => 'Competitor', 
 				'Exhibitor'=>'Exhibitor', 
 				'Performer'=>'Performer'
-			),			
-		),
-	),
-	array(
-		'name'   => 'mode',
-		'label'   => lang('user_meta_mode'),
-		'rules'   => 'required|trim|max_length[50]',
-        'admin_only'    => false,
-		'form_detail' => array(
-			'type' => 'dropdown',
-			'settings' => array(
-				'name'		=> 'mode',
-				'id'		=> 'mode',
-				'maxlength'	=> '50',
-				'class'		=> 'form-control'
-			),
-			'options' => array(
-				'Participant' => 'Participant', 
-				'Representative'=>'Representative of a Participant', 
 			),			
 		),
 	),
