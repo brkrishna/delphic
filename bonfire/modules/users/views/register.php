@@ -24,7 +24,7 @@ if (validation_errors()) :
 <?php echo form_open(site_url(REGISTER_URL), array('class' => "form-horizontal", 'autocomplete' => 'off')); ?>
 
 <div class="row">
-    <hr/><h3>Registration Step 1</h3>
+    <hr/><h3>Registration Step 1: Sign Up</h3>
     <div class="col-xs-12 col-sm-6 col-md-6">
         <div class="form-group<?php echo form_error('email') ? $errorClass : ''; ?>">
             <label class="control-label required" for="email"><?php echo lang('bf_email') . lang('bf_form_label_required') ; ?></label>
