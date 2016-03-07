@@ -4,6 +4,13 @@
 <!--<p><br/><a href="<?php echo site_url(); ?>">&larr; <?php echo lang('us_back_to') . $this->settings_lib->item('site.title'); ?></a></p>-->
 
 <div id="login">
+	<p>
+		<!--<?php if ( $site_open ) : ?>
+			<?php echo anchor(REGISTER_URL, lang('us_sign_up')); ?>
+		<?php endif; ?>-->
+		Don't have an account, <strong><a href="<?php e(REGISTER_URL, lang('us_register')); ?>">Sign Up</a></strong>
+		<br/>
+	</p>
 	<h2><?php echo lang('us_login'); ?></h2>
 
 	<?php echo Template::message(); ?>
@@ -69,12 +76,6 @@
 	<?php endif; ?>
 
 	<p style="text-align: center">
-		<!--<?php if ( $site_open ) : ?>
-			<?php echo anchor(REGISTER_URL, lang('us_sign_up')); ?>
-		<?php endif; ?>-->
-		Already have an account?, <strong>Sign In</strong><br/>
-		Don't have an account, <strong>Register</strong>
-		<br/>
 		<br/><?php echo anchor('/forgot_password', lang('us_forgot_your_password')); ?>
 	</p>
 
