@@ -16,18 +16,18 @@
         <div class="col-xs-12 col-sm-6 col-md-10" text-align="center">
         	<h1>V Youth Delphic Games</h1>
             <br/>
-        	<p class="lead text-justify">Register and follow through the process to complete necessary documentation, sit back and 
-            relax while we review the application and get back to you.<br/><br/><i>That's all folks.</i></p>
+        	<p class="lead text-justify">Follow the process below to complete the required registration process.<br/>
+                We will review your application and get back to you within two working days.<br/><br/></p>
             <br/>
             <ul class="nav nav-pills">
                 <li>
                     <a href="<?php echo site_url(LOGIN_URL); ?>">
-                        <button class="btn btn-primary btn-large"><span class="glyphicon glyphicon-log-in"></span>&nbsp;Sign</button>
+                        <button class="btn btn-primary btn-large"><span class="glyphicon glyphicon-log-in"></span>&nbsp;Sign In</button>
                     </a>
                 </li>
                 <li>
                     <a href="<?php echo site_url('/register'); ?>">
-                        <button class="btn btn-primary btn-large"><span class="glyphicon glyphicon-align-justify"></span>&nbsp;Register</button>
+                        <button class="btn btn-primary btn-large"><span class="glyphicon glyphicon-align-justify"></span>&nbsp;Sign Up</button>
                     </a>
                 </li>
             </ul>
@@ -50,17 +50,13 @@
                     This is a four step process: 
                     <ul>
                         <li>Create your <strong>Profile</strong></li>
-                        <li>Setup your <strong>team</strong>, members who will participate in the event</li>
-                        <li>Register for <strong>Event(s)</strong></li>
-                        <li>Pay the Registration <strong>Fees</strong>, after reading through the Rules and Regulations</li>
+                        <li>If an individual participant, then you may directly skip to the next point after <b>Registering</b>. If on a team, then the required details of the participants can be <b>Registered</b> by one of the team members</li>
+                        <li>Choose a <b>Category</b> in which you or your team wants to participate/exhibit/compete</li>
+                        <li>Proceed to pay the <b>Registration Fees</b>, and exit</li>
                     </ul>
-                    You can follow through the navigation buttons on top right for completing the registration process. A button with green color text indicates that you have completed the step and a button in orange needs your attention
+                    You can keep a track of your registration process through the navigation bar on the top right corner of the page.
                     <br/><br/>
-                    Once you are done, please wait to hear from our jury for next steps and you can come back to check the status of your application
-                    <br/><br/>
-                    If your application is approved, you will hear on next steps, detailed schedule from us
-                    <br/>OR<br/>
-                    If your application is not approved, we will get back with detailed email on why you couldn't make it this time
+                    Once you are done, please wait to hear from our jury for the next phase of your registration process.
                 </p>
                 <br/>
                 <p class="text-center">
