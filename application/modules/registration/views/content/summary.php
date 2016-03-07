@@ -3,7 +3,7 @@ $has_profile	= isset($profile) && is_array($profile) && count($profile);
 $has_registrations = isset($registrations) && is_array($registrations) && count($registrations);
 ?>
 <div class='row'>
-    <span class="pull-center"><strong>Invoice</strong></span>
+<!--    <span class="pull-center"><strong>Invoice</strong></span>
     <hr/>
 	<table class='table table-bordered table-condensed'>
 		<thead>
@@ -55,6 +55,6 @@ $has_registrations = isset($registrations) && is_array($registrations) && count(
             <?php echo anchor(base_url() . 'index.php/admin/content/rnrack/create', 'Continue to Payment', array('class'=>'btn btn-primary', 'tabindex'=>'1')); ?> 
         </div>
     </p>
-    <hr/>
-    <p class="alert alert-info">We are integrating our payment systems and would get back to you via email shortly</p>
+    <hr/>-->
+    <p class="alert alert-info">We will get back to you via email shortly for registration fees</p>
 </div>
