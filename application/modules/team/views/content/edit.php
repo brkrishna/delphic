@@ -92,6 +92,11 @@ $id = isset($team->id) ? $team->id : '';
             <input class='form-control' tabindex='2' id='name' type='text' required name='name' maxlength='255' value="<?php echo set_value('name', isset($team->name) ? $team->name : ''); ?>" />
             <span class='help-inline'><?php echo form_error('name'); ?></span>
         </div>
+        <div class="form-group<?php echo form_error('m_name') ? ' error' : ''; ?>">
+            <?php echo form_label(lang('team_field_m_name'), 'm_name', array('class' => 'control-label')); ?>
+            <input class='form-control' tabindex='3' id='m_name' type='text' name='m_name' maxlength='255' value="<?php echo set_value('m_name', isset($team->m_name) ? $team->m_name : ''); ?>" />
+            <span class='help-inline'><?php echo form_error('m_name'); ?></span>
+        </div>
         <div class="form-group<?php echo form_error('last_name') ? ' error' : ''; ?>">
             <?php echo form_label(lang('team_field_last_name') . lang('bf_form_label_required'), 'last_name', array('class' => 'control-label')); ?>
             <input class='form-control' tabindex='3' id='name' type='text' required name='last_name' maxlength='255' value="<?php echo set_value('last_name', isset($team->last_name) ? $team->last_name : ''); ?>" />
@@ -195,20 +200,21 @@ $id = isset($team->id) ? $team->id : '';
             <p class="text-justify">
                 <h2>What is this Team?</h2>
                 <hr/>
-                If you are a group of performers, you will create entries for each team member here. Once added, you can map these team members as participants for various events
+                One member per team/group may register on behalf of the rest of the team.
+                <br/>
+                If you are a group of performers, you can create entries for each team member here.
+                <br/>
+                Once everybody is added, you can map the team members as participants for various events or exhibitions
                 <br/><br/>
-                For contact number and alternate contact number, please specify only digits with ISD code where applicable 
-                <br/><br/>
-                Please enter the dates in YYYY-MM-DD format, optionally you can select the date from calendar as well
-                <br/><br/>
+                Copies of passport must be enclosed in a Zip file or in PDF format
+                <br/>
                 Note: For International Participants, passport details are mandatory
-                <br/><br/>
-                Some house keeping checks with passport
                 <ul>    
                     <li>Should be valid and legible</li>
                     <li>Passport should have been issued at least 3 months earlier</li>
                     <li>Passport Expiry date should be more than 6 months from the stipulated travel time</li>
                 </ul>
+                <b>Disclaimer</b>: Kindly do not post any defamatory, infringing, obscene, indecent, discriminatory or unlawful material or information the IDC reserves the right to remove without notice any content received from users
             </p>
         </div>
     </div>

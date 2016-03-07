@@ -61,6 +61,11 @@ class Team_model extends BF_Model
 			'rules' => 'required|max_length[255]',
 		),
 		array(
+			'field' => 'm_name',
+			'label' => 'lang:team_field_m_name',
+			'rules' => 'required|max_length[255]',
+		),
+		array(
 			'field' => 'last_name',
 			'label' => 'lang:team_field_last_name',
 			'rules' => 'required|max_length[255]',
@@ -173,7 +178,7 @@ class Team_model extends BF_Model
 		if ( $query->num_rows() <= 0 )
 			return '';
 
-		$option = array('-1'=>'Select one');
+		//$option = array('-1'=>'Select one');
 		foreach ($query->result() as $row)
 		{
 			$option[$row->id] = $row->name;

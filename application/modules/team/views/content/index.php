@@ -23,9 +23,9 @@ if ($can_delete) {
 					<th><?php echo lang('team_field_name'); ?></th>
 					<th><?php echo lang('team_field_gender'); ?></th>
 					<th><?php echo lang('team_field_dob'); ?></th>
-					<th><?php echo lang('team_field_contact_nbr'); ?></th>
+					<!--<th><?php echo lang('team_field_contact_nbr'); ?></th>-->
 					<th><?php echo lang('team_field_email'); ?></th>
-					<th><?php echo lang('team_field_profession'); ?></th>
+					<!--<th><?php echo lang('team_field_profession'); ?></th>-->
 				</tr>
 			</thead>
 			<?php if ($has_records) : ?>
@@ -57,9 +57,9 @@ if ($can_delete) {
 				<?php endif; ?>
 					<td><?php e($record->gender); ?></td>
 					<td><?php e($record->dob); ?></td>
-					<td><?php e($record->contact_nbr); ?></td>
+					<!--<td><?php e($record->contact_nbr); ?></td>-->
 					<td><?php e($record->email); ?></td>
-					<td><?php e($record->profession); ?></td>
+					<!--<td><?php e($record->profession); ?></td>-->
 				</tr>
 				<?php
 					endforeach;

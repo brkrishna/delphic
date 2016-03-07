@@ -58,6 +58,7 @@ $lang['team_area_title'] = 'Team';
 $lang['team_field_profile_id'] = 'Profile';
 $lang['team_field_member_type'] = 'Member Type';
 $lang['team_field_name'] = 'First Name';
+$lang['team_field_m_name'] = 'Middle Name';
 $lang['team_field_last_name'] = 'Last Name';
 $lang['team_field_gender'] = 'Gender';
 $lang['team_field_dob'] = 'Date of Birth';
