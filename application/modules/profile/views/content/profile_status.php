@@ -1,7 +1,7 @@
         <ul class="nav nav-wizard">
-            <li role="presentation" class="active">
+            <!--<li role="presentation" class="active">
                 <span class="badge">Amount Due:&nbsp;<span class="glyphicon glyphicon-usd"></span>&nbsp;&nbsp;<?php e(number_format($event_record_count * 11, 2)); ?></span>
-            </li>
+            </li>-->
             <li role="presentation">
                 <?php if (isset($profile_count) && $profile_count > 0) : ?>
                     <?php ($current_user_role_id == 7 ? $url = base_url() . 'index.php/admin/content/profile/edit/' . $this->session->userdata('profile_id') : $url = 'content/profile'); ?>
@@ -20,9 +20,9 @@
             </li>
             <li role="presentation">
                 <?php if (isset($event_count) && $event_count > 0) : ?>
-                    <a style="color:green;" href="<?php e(base_url() . 'index.php/admin/content/registration'); ?>"><span class="glyphicon glyphicon-list"></span>&nbsp;Events</a
+                    <a style="color:green;" href="<?php e(base_url() . 'index.php/admin/content/event_registration'); ?>"><span class="glyphicon glyphicon-list"></span>&nbsp;Events</a
                 <?php else : ?>
-                    <a style="color:orange;" href="<?php e(base_url() . 'index.php/admin/content/registration'); ?>"><span class="glyphicon glyphicon-list"></span>&nbsp;Events</a
+                    <a style="color:orange;" href="<?php e(base_url() . 'index.php/admin/content/event_registration'); ?>"><span class="glyphicon glyphicon-list"></span>&nbsp;Events</a
                 <?php endif; ?>
             </li>
             <li role="presentation">
@@ -34,5 +34,5 @@
             </li>
         </ul>
         <div class="alert">
-            <h4><u>Application Status:</u>&nbsp;<span style="color:green;">In Progress</span>&nbsp;&#10143;&nbsp;Awaiting Approval&nbsp;&#10143;&nbsp;Approved / Not Approved</h4>
+            <h6<u>Application Status:</u>&nbsp;<span style="color:green;">In Progress</span>&nbsp;&#10143;&nbsp;Awaiting Approval&nbsp;&#10143;&nbsp;Approved / Not Approved</h6>
         </div>
