@@ -57,6 +57,7 @@ $lang['profile_area_title'] = 'Profile';
 $lang['profile_field_entity_type'] = 'Registration Type';
 $lang['profile_field_entity_name'] = 'Organization Name';
 $lang['profile_field_contact_name'] = 'Contact First Name';
+$lang['profile_field_contact_m_name'] = 'Contact Middle Name';
 $lang['profile_field_contact_last_name'] = 'Contact Last Name';
 $lang['profile_field_address'] = 'Address';
 $lang['profile_field_city'] = 'City';
@@ -66,7 +67,7 @@ $lang['profile_field_contact_number'] = 'Contact Number (cell phone number recom
 $lang['profile_field_alt_contact_number'] = 'Alternate Contact Number';
 $lang['profile_field_email_id'] = 'Email ID';
 $lang['profile_field_regn_nbr'] = 'Organization Registration Number';
-$lang['profile_field_profile'] = 'Brief Profile';
+$lang['profile_field_profile'] = 'Brief Profile (links can also be added)';
 $lang['profile_field_addl_info'] = 'Additional Info';
 $lang['profile_field_image'] = 'Attachment';
 
