@@ -227,10 +227,78 @@ class Content extends Admin_Controller
             unset($data['attach_1']);
         }
 
-        unset($data['attach_2']);
-        unset($data['attach_3']);
-        unset($data['attach_4']);
-        unset($data['attach_5']);
+        if (isset($_FILES['attach_2']) && is_array($_FILES['attach_2']) && $_FILES['attach_2']['error'] != 4)
+        {
+            // make sure we only pass in the fields we want
+            $file_path = $this->config->item('upload_dir');
+            $config['upload_path']      = $file_path;
+            $config['allowed_types']    = 'pdf|jpg|gif|png';
+
+            $this->load->library('upload', $config);
+            if ( ! $this->upload->do_upload('attach_2'))
+            {
+                return array('error'=>$this->upload->display_errors());
+            }else{
+                $data['attach_2'] = serialize($this->upload->data());         
+            }       
+        }else{
+            unset($data['attach_2']);
+        }
+
+
+        if (isset($_FILES['attach_3']) && is_array($_FILES['attach_3']) && $_FILES['attach_3']['error'] != 4)
+        {
+            // make sure we only pass in the fields we want
+            $file_path = $this->config->item('upload_dir');
+            $config['upload_path']      = $file_path;
+            $config['allowed_types']    = 'pdf|jpg|gif|png';
+
+            $this->load->library('upload', $config);
+            if ( ! $this->upload->do_upload('attach_3'))
+            {
+                return array('error'=>$this->upload->display_errors());
+            }else{
+                $data['attach_3'] = serialize($this->upload->data());         
+            }       
+        }else{
+            unset($data['attach_3']);
+        }
+
+        if (isset($_FILES['attach_4']) && is_array($_FILES['attach_4']) && $_FILES['attach_4']['error'] != 4)
+        {
+            // make sure we only pass in the fields we want
+            $file_path = $this->config->item('upload_dir');
+            $config['upload_path']      = $file_path;
+            $config['allowed_types']    = 'pdf|jpg|gif|png';
+
+            $this->load->library('upload', $config);
+            if ( ! $this->upload->do_upload('attach_4'))
+            {
+                return array('error'=>$this->upload->display_errors());
+            }else{
+                $data['attach_4'] = serialize($this->upload->data());         
+            }       
+        }else{
+            unset($data['attach_4']);
+        }
+
+        if (isset($_FILES['attach_5']) && is_array($_FILES['attach_5']) && $_FILES['attach_5']['error'] != 4)
+        {
+            // make sure we only pass in the fields we want
+            $file_path = $this->config->item('upload_dir');
+            $config['upload_path']      = $file_path;
+            $config['allowed_types']    = 'pdf|jpg|gif|png';
+
+            $this->load->library('upload', $config);
+            if ( ! $this->upload->do_upload('attach_5'))
+            {
+                return array('error'=>$this->upload->display_errors());
+            }else{
+                $data['attach_5'] = serialize($this->upload->data());         
+            }       
+        }else{
+            unset($data['attach_5']);
+        }
 
         // Validate the data
         $this->form_validation->set_rules($this->event_registration_model->get_validation_rules());

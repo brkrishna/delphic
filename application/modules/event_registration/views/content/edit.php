@@ -57,7 +57,7 @@ $id = isset($event_registration->id) ? $event_registration->id : '';
                     <?php echo(isset($event_registration->attach_1) ? anchor(base_url() . 'uploads/' . unserialize($event_registration->attach_1)['file_name'], unserialize($event_registration->attach_1)['file_name']) : ''); ?>
                 <?php endif; ?>
                 <div class='controls'>
-                    <input class="btn btn-primary" id='attach[]' type='file' name='attach[]' multiple maxlength='4000' value="<?php echo set_value('attach_1', isset($event_registration->attach_1) ? $event_registration->attach_1 : ''); ?>" />
+                    <input class="btn btn-primary" id='attach_1' type='file' name='attach_1' multiple maxlength='4000' value="<?php echo set_value('attach_1', isset($event_registration->attach_1) ? $event_registration->attach_1 : ''); ?>" />
                     <span class='help-inline'><?php echo form_error('attach_1'); ?></span>
                 </div>
             </div>
@@ -75,7 +75,7 @@ $id = isset($event_registration->id) ? $event_registration->id : '';
             </div>
 
 
-            <div class="form-group<?php echo form_error('attach_1') ? ' error' : ''; ?>">
+            <div class="form-group<?php echo form_error('attach_3') ? ' error' : ''; ?>">
                 <?php echo form_label(lang('event_registration_field_attach_3'), 'attach_3', array('class' => 'control-label')); ?>
                 <?php if(isset($event_registration->attach_3)) : ?>
                     <?php echo(isset($event_registration->attach_3) ? anchor(base_url() . 'uploads/' . unserialize($event_registration->attach_3)['file_name'], unserialize($event_registration->attach_3)['file_name']) : ''); ?>
