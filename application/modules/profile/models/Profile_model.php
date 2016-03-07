@@ -61,6 +61,11 @@ class Profile_model extends BF_Model
 			'rules' => 'trim|required|max_length[255]',
 		),
 		array(
+			'field' => 'contact_m_name',
+			'label' => 'lang:profile_field_contact_m_name',
+			'rules' => 'trim|max_length[255]',
+		),
+		array(
 			'field' => 'contact_last_name',
 			'label' => 'lang:profile_field_contact_last_name',
 			'rules' => 'trim|max_length[255]',
