@@ -223,6 +223,29 @@ class Content extends Admin_Controller
             $_POST['id'] = $id;
         }
 
+        // Make sure we only pass in the fields we want
+        
+        $data = $this->team_model->prep_data($this->input->post());
+
+        if (isset($_FILES['attachment']) && is_array($_FILES['attachment']) && $_FILES['attachment']['error'] != 4)
+        {
+            // make sure we only pass in the fields we want
+            $file_path = $this->config->item('upload_dir');
+            $config['upload_path']      = $file_path;
+            $config['allowed_types']    = 'pdf|jpeg|jpg|gif|png';
+
+            $this->load->library('upload', $config);
+            if ( ! $this->upload->do_upload('attachment'))
+            {
+                return array('error'=>$this->upload->display_errors());
+            }else{
+                $data['attachment'] = serialize($this->upload->data());         
+            }       
+        }else{
+            unset($data['attachment']);
+        }
+        $data['profile_id'] = $this->session->userdata('profile_id');
+
         // Validate the data
         $this->form_validation->set_rules($this->team_model->get_validation_rules());
         $this->form_validation->set_rules('contact_nbr', 'Contact Number', 'callback_phone_regex');
@@ -233,7 +256,7 @@ class Content extends Admin_Controller
         if ($this->input->post('alt_contact_nbr') != ''){
             $this->form_validation->set_rules('alt_contact_nbr', 'Alternate Contact Number', 'callback_phone_regex');
         }
-        if ($this->input->post('member_type') == 'Indian Citizen'){
+        if ($this->input->post('member_type') == 'Indian Citizen' && type=='insert'){
             $this->form_validation->set_rules('attachment', 'Attachment', 'required|trim|max_length[4000]');
         }
 
@@ -241,29 +264,6 @@ class Content extends Admin_Controller
         if ($this->form_validation->run() === false) {
             return false;
         }
-
-        // Make sure we only pass in the fields we want
-        
-        $data = $this->team_model->prep_data($this->input->post());
-
-		if (isset($_FILES['attachment']) && is_array($_FILES['attachment']) && $_FILES['attachment']['error'] != 4)
-        {
-			// make sure we only pass in the fields we want
-			$file_path = $this->config->item('upload_dir');
-			$config['upload_path']		= $file_path;
-			$config['allowed_types']	= 'pdf|jpeg|jpg|gif|png';
-
-			$this->load->library('upload', $config);
-			if ( ! $this->upload->do_upload('attachment'))
-			{
-				return array('error'=>$this->upload->display_errors());
-			}else{
-				$data['attachment'] = serialize($this->upload->data());			
-			}		
-        }else{
-            unset($data['attachment']);
-        }
-        $data['profile_id'] = $this->session->userdata('profile_id');
 
         // Additional handling for default values should be added below,
         // or in the model's prep_data() method
