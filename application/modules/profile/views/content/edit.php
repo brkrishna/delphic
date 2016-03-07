@@ -76,6 +76,11 @@ $id = isset($profile->id) ? $profile->id : '';
             <input tabindex='4' id='contact_name' class="form-control" type='text' required='required' name='contact_name' maxlength='255' value="<?php echo set_value('contact_name', isset($profile->contact_name) ? $profile->contact_name : ''); ?>" />
             <span class='help-inline'><?php echo form_error('contact_name'); ?></span>
         </div>
+        <div class="form-group<?php echo form_error('contact_m_name') ? ' error' : ''; ?>">
+            <?php echo form_label(lang('profile_field_contact_m_name'), 'contact_m_name', array('class' => 'control-label')); ?>
+            <input tabindex='5' id='contact_m_name' class="form-control" type='text' required='required' name='contact_m_name' maxlength='255' value="<?php echo set_value('contact_m_name', isset($profile->contact_m_name) ? $profile->contact_m_name : ''); ?>" />
+            <span class='help-inline'><?php echo form_error('contact_m_name'); ?></span>
+        </div>
         <div class="form-group<?php echo form_error('contact_last_name') ? ' error' : ''; ?>">
             <?php echo form_label(lang('profile_field_contact_last_name'), 'contact_last_name', array('class' => 'control-label')); ?>
             <input tabindex='5' id='contact_last_name' class="form-control" type='text' required='required' name='contact_last_name' maxlength='255' value="<?php echo set_value('contact_last_name', isset($profile->contact_last_name) ? $profile->contact_last_name : ''); ?>" />
@@ -118,28 +123,39 @@ $id = isset($profile->id) ? $profile->id : '';
             <input tabindex='12' class="form-control" id='post_code' type='text' name='post_code' maxlength='11' value="<?php echo set_value('post_code', isset($profile->post_code) ? $profile->post_code : ''); ?>" />
             <span class='help-inline'><?php echo form_error('post_code'); ?></span>
         </div>
-        <!--
+        
         <div class="form-group<?php echo form_error('profile') ? ' error' : ''; ?>">
             <?php echo form_label(lang('profile_field_profile') . lang('bf_form_label_required'), 'profile', array('class' => 'control-label')); ?>
             <?php echo form_textarea(array('class'=>'form-control', 'name' => 'profile', 'id' => 'profile', 'rows' => '8', 'cols' => '80', 'tabindex'=>'13', 'value' => set_value('profile', isset($profile->profile) ? $profile->profile : ''))); ?>
             <span class='help-inline'><?php echo form_error('profile'); ?></span>
         </div>
+        <!--
         <div class="form-group<?php echo form_error('addl_info') ? ' error' : ''; ?>">
             <?php echo form_label(lang('profile_field_addl_info'), 'addl_info', array('class' => 'control-label')); ?>
             <?php echo form_textarea(array('class'=>'form-control', 'name' => 'addl_info', 'id' => 'addl_info', 'rows' => '8', 'cols' => '80',  'tabindex'=>'14', 'value' => set_value('addl_info', isset($profile->addl_info) ? $profile->addl_info : ''))); ?>
             <span class='help-inline'><?php echo form_error('addl_info'); ?></span>
         </div>-->
+        <!--
+        <?php if(isset($profile->image)) : ?>
+            <?php echo(isset($profile->image) ? anchor(base_url() . 'uploads/' . unserialize($profile->image)['file_name'], unserialize($profile->image)['file_name']) : ''); ?>
+        <?php endif; ?>
+        <div class="form-group<?php echo form_error('image') ? ' error' : ''; ?>">
+            <?php echo form_label(lang('profile_field_image'), 'image', array('class' => 'control-label')); ?>
+            <div class='controls'>
+                <input class="btn btn-primary" id='image' type='file' name='image' maxlength='4000' value="<?php echo set_value('image', isset($profile->image) ? $profile->image : ''); ?>" />
+                <span class='help-inline'><?php echo form_error('image'); ?></span>
+            </div>
+        </div>
+        <br/>-->
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6">
         <div class="well well-lg">
             <p class="text-justify">
                 <h2>What is this Profile for?</h2>
                 <hr/>
-                A Group, Sponsoring Organization or Country representing an individual or team would create their profile here, they will act as a single point of contact and represent the team for the deplic games and handle all logistics coordination from the team perspective
+                A Group, Sponsoring Organization or a Country representing an individual or a team creates their profile, which acts as a single point of contact and represents the team for the 5th Youth Delphic Games.
                 <br/><br/>
-                For contact number and alternate contact number, please specify only digits with ISD code where applicable
-                <br/><br/>
-                Note: If you are registering as an Individual, Organization Name and Registration Number are not required
+                Note: If you are registering as an Individual, Name of the Organization and Registration Number of the Organization is not applicable
             </p>
         </div>
     </div>
