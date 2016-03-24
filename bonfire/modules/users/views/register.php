@@ -21,9 +21,9 @@ if (validation_errors()) :
 <?php endif; 
 */
 ?>
-<?php echo form_open(site_url(REGISTER_URL), array('class' => "form-horizontal", 'autocomplete' => 'off')); ?>
 
 <div class="row">
+    <?php echo form_open(site_url(REGISTER_URL), array('class' => "form-horizontal", 'autocomplete' => 'off')); ?>
     <hr/><h3>Registration Step 1: Sign Up</h3>
     <div class="col-xs-12 col-sm-6 col-md-6">
         <div class="form-group<?php echo form_error('email') ? $errorClass : ''; ?>">
@@ -78,5 +78,6 @@ if (validation_errors()) :
             <input tabindex='6' type='submit' name='register' class='btn btn-primary' value="<?php echo lang('us_register'); ?>" />
         </div>            
     </div>
+    <?php echo form_close(); ?>
+</div>
 
-<?php echo form_close(); ?>

@@ -36,9 +36,6 @@ hr{
     height:1px;
     background-color:#ee4580;
 }
-.form-control{
-	width:90%;
-}
 .btn {
 	border-radius: 0;
 }
@@ -47,7 +44,21 @@ hr{
 	color: #f14380;
 	border: 2px solid #ee4580;
 	font-size: 1.3em;
+	transition: all 0.7s ease 0s;
+	padding: 8px 24px;
 }
+
+.text-sty{
+	color:#ee4580;
+	transition: all 0.7s ease 0s;
+}
+
+.text-sty:hover{
+	color:#111;
+	text-decoration:none;
+}
+
+
 .btn-primary:hover {
 	background-color: #ee4580;
 	border: 2px solid #ee4580;
@@ -58,12 +69,42 @@ hr{
 	color: #f14380;
 	border: 2px solid #f14380;
 	font-size: 1.3em;
-}
+/*	transition: all 0.7s ease 0s;
+*/}
 .btn-warning:hover {
 	background-color: #f0ad4e;
 	border: 2px solid #f0ad4e;
 	color: #fff;
 }
+
+
+.form-control {
+border: 2px solid #ddd;
+    border-radius: 0;
+    color: #666;
+    height: 50px;
+    margin-top: 5px;
+    padding-left: 12px;
+    width: 100%;
+	}
+
+.alert {
+    border-radius: 0;
+}
+
+.well {
+    border-radius: 0;
+}
+
+.nav > li > a {
+
+}
+
+.nav > li > a:hover {
+	background-color:transparent;
+}
+
+
 /*
 .btn {
 	border-radius: 0;
@@ -159,3 +200,6 @@ span .error{
 	color:red;
 	background-color: orange;
 }
+
+
+

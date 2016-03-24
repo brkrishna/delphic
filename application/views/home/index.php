@@ -17,7 +17,7 @@
         	<h1>V Youth Delphic Games</h1>
             <br/>
         	<p class="lead text-justify">Follow the process below to complete the required registration process.<br/>
-                We will review your application and get back to you within two working days.<br/><br/></p>
+                We will review your application and get back to you within 14 working days.<br/><br/></p>
             <br/>
             <ul class="nav nav-pills">
                 <li>
