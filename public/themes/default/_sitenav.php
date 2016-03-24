@@ -7,6 +7,9 @@
 	<?php if(!empty($current_user)) : ?>
 	<div class="col-md-8">
 	    <ul class="nav nav-pills pull-right">
+	    	<li <?php echo check_class('faq'); ?>>
+	    		<a href="<?php echo site_url('profile/content/faq'); ?>"><span class="glyphicon glyphicon-book"></span>&nbsp;<?php e(lang('bf_faq')); ?></a>
+	    	</li>
 	    	<li <?php echo check_class('home'); ?>>
 	    		<a href="<?php echo site_url(); ?>"><span class="glyphicon glyphicon-home"></span>&nbsp;<?php e(lang('bf_home')); ?></a>
 	    	</li>

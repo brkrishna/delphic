@@ -40,6 +40,7 @@ $lang['bf_site_information'] = 'Site Information';
 $lang['bf_timezone'] = 'Timezone';
 $lang['bf_language'] = 'Language';
 $lang['bf_language_help'] = 'Choose the languages available to the user.';
+$lang['bf_faq'] = 'FAQ';
 
 //------------------------------------------------------------------------------
 // ! AUTH SETTINGS

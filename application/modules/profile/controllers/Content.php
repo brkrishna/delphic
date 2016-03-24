@@ -189,6 +189,12 @@ class Content extends Admin_Controller
         }
     }
 
+    public function faq(){
+        
+        Template::render();
+    }    
+
+
     private function save_profile($type = 'insert', $id = 0)
     {
         if ($type == 'update') {
